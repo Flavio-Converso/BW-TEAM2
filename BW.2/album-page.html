@@ -21,91 +21,89 @@
 <body>
     <main>
         <div class="container-fluid container-flex p-0 mainConteiner">
-            <div class="row d-none d-sm-flex  flex-sm-row p-0 m-0 riga">
-                <!-- SIDEBAR SINISTRA-->
-                <div class="col-sm-3 side-bar ps-3 pe-0">
-                    <div class="menu">
-                        <div class="menu1 d-flex flex-sm-column pt-2">
-                            <div class="d-none d-sm-block">
-                                <a href="#"><i class="bi bi-three-dots text-light"></i></a>
-                            </div>
-                            <div class="d-flex gap-3 align-items-center mb-3">
-                                <a href="./index.html"><button
-                                        class="btn p-0 text-light bi bi-house-door-fill icon"></button></a>
-                                <a href="./index.html"
-                                    class="text-decoration-none text-light d-none d-sm-block">Home</a>
-                            </div>
 
-                            <div class="d-flex searchBox align-items-center mb-3">
-                                <div class="search-container">
-                                    <a href="#bottom" class="search-icon" onclick="toggleSearchInput()"><i
-                                            class="bi bi-search icon-spacing icon"></i><span id="cerca">Cerca</span></a>
+            <!-- SIDEBAR SINISTRA-->
+            <div class="col-12 col-sm-3 side-bar ps-3 pe-0">
+                <div class="menu">
+                    <div class="menu1 d-flex flex-sm-column pt-2">
+                        <div class="d-none d-sm-block">
+                            <a href="#"><i class="bi bi-three-dots text-light"></i></a>
+                        </div>
+                        <div class="d-flex gap-3 align-items-center mb-3">
+                            <a href="./index.html"><button
+                                    class="btn p-0 text-light bi bi-house-door-fill icon"></button></a>
+                            <a href="./index.html" class="text-decoration-none text-light d-none d-sm-block">Home</a>
+                        </div>
 
-                                    <input id="search" type="text" class="search-input" placeholder="   Cerca" />
-                                </div>
-                            </div>
+                        <div class="d-flex searchBox align-items-center mb-3">
+                            <div class="search-container">
+                                <a href="#bottom" class="search-icon" onclick="toggleSearchInput()"><i
+                                        class="bi bi-search icon-spacing icon"></i><span id="cerca">Cerca</span></a>
 
-                            <div class="d-flex gap-3 align-items-center mb-4">
-                                <a href="#"><img id="library" src="./assets/imgs/svg/libreria.png" alt="" />
-                                </a>
-                                <a href="#" class="text-decoration-none text-light d-none d-sm-block">La tua
-                                    libreria</a>
+                                <input id="search" type="text" class="search-input ps-2" placeholder="   Cerca" />
                             </div>
                         </div>
 
-                        <div class="d-none menu2 d-sm-flex flex-column">
-                            <div class="d-flex gap-3 align-items-center mb-2 mt-2">
-                                <a href="#"><img src="./assets/imgs/svg/playlist.png" alt="" />
-                                </a>
-                                <a href="#">Crea playlist</a>
-                            </div>
-
-                            <div class="d-flex gap-3 align-items-center mb-2">
-                                <a href="#"><img src="./assets/imgs/svg/brani.png" alt="" />
-                                </a>
-                                <a href="#">Brani che ti piacciono</a>
-                            </div>
-
-                            <div class="d-flex gap-3 align-items-center mb-2">
-                                <a href="#"><img src="./assets/imgs/svg/episodi.png" alt="" />
-                                </a>
-                                <a href="">I tuoi preferiti</a>
-                            </div>
+                        <div class="d-flex gap-3 align-items-center mb-4">
+                            <a href="#"><img id="library" src="./assets/imgs/svg/libreria.png" alt="" />
+                            </a>
+                            <a href="#" class="text-decoration-none text-light d-none d-sm-block">La tua
+                                libreria</a>
                         </div>
                     </div>
-                    <div class="playlisT mt-4 me-2 border-top">
-                        <p class="mt-4">Amour toujours</p>
-                        <p>Love Songs</p>
-                        <p>Cuori solitari</p>
-                        <p>Blue Lips</p>
-                        <p>One Step Closer</p>
-                        <p>Una risata ed un bacio</p>
-                        <p>Partners in crime</p>
-                        <p>Musica della passione</p>
-                        <p>Kissy</p>
-                        <p>Songs that make me think of her</p>
-                        <p>Songs that make me think of him</p>
-                        <p>Songs That Make Me Think of You</p>
-                        <p>Enemies to lovers</p>
-                        <p>Hold Me Closer</p>
-                        <p>Mente cuore</p>
-                        <p>A couple songs</p>
-                        <p>Date night 3</p>
-                        <p>Cherry lipstick</p>
-                        <p>First Date</p>
-                        <p>Romantic Ballads</p>
-                        <p>Rollercoaster of Emotions</p>
-                        <p>I Think you think too much of me</p>
-                        <p>Lips of an Angel</p>
-                        <p>Versatile Emotions</p>
-                        <p>Closer to Fine</p>
-                        <p>No song without you</p>
-                        <p class="pb-5">Bullet For My Valentine</p>
+
+                    <div class="d-none menu2 d-sm-flex flex-column">
+                        <div class="d-flex gap-3 align-items-center mb-2 mt-2">
+                            <a href="#"><img src="./assets/imgs/svg/playlist.png" alt="" />
+                            </a>
+                            <a href="#">Crea playlist</a>
+                        </div>
+
+                        <div class="d-flex gap-3 align-items-center mb-2">
+                            <a href="#"><img src="./assets/imgs/svg/brani.png" alt="" />
+                            </a>
+                            <a href="#">Brani che ti piacciono</a>
+                        </div>
+
+                        <div class="d-flex gap-3 align-items-center mb-2">
+                            <a href="#"><img src="./assets/imgs/svg/episodi.png" alt="" />
+                            </a>
+                            <a href="">I tuoi preferiti</a>
+                        </div>
                     </div>
+                </div>
+                <div class="playlisT mt-4 me-2 border-top">
+                    <p class="mt-4">Amour toujours</p>
+                    <p>Love Songs</p>
+                    <p>Cuori solitari</p>
+                    <p>Blue Lips</p>
+                    <p>One Step Closer</p>
+                    <p>Una risata ed un bacio</p>
+                    <p>Partners in crime</p>
+                    <p>Musica della passione</p>
+                    <p>Kissy</p>
+                    <p>Songs that make me think of her</p>
+                    <p>Songs that make me think of him</p>
+                    <p>Songs That Make Me Think of You</p>
+                    <p>Enemies to lovers</p>
+                    <p>Hold Me Closer</p>
+                    <p>Mente cuore</p>
+                    <p>A couple songs</p>
+                    <p>Date night 3</p>
+                    <p>Cherry lipstick</p>
+                    <p>First Date</p>
+                    <p>Romantic Ballads</p>
+                    <p>Rollercoaster of Emotions</p>
+                    <p>I Think you think too much of me</p>
+                    <p>Lips of an Angel</p>
+                    <p>Versatile Emotions</p>
+                    <p>Closer to Fine</p>
+                    <p>No song without you</p>
+                    <p class="pb-5">Bullet For My Valentine</p>
                 </div>
             </div>
             <!-- COLONNA CENTRALE -->
-            <div class="col sm-12 col-md-9 col-lg-7 central p-0 grey-bg">
+            <div class="col sm-12 col-md-9 col-lg-7 central px-0 grey-bg scorrimentO fixAltezzA"><!--ALTEZZA-->
                 <div id="bgDinamico">
                     <div class="d-flex justify-content-between mb-4 px-4">
                         <!--top-->
@@ -153,7 +151,7 @@
                     </div>
                 </div>
                 <div class="d-flex flex-column text-light" id="rows-tracks-list">
-                    <div class="container pushaAlto" id="containeR-trackS">
+                    <div class="container " id="containeR-trackS">
                         <div class="row border-bottom">
                             <div class="d-flex align-items-center" id="icoN">
                                 <div class="play-badge3 me-4 ms-1">
