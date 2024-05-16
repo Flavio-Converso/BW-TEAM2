@@ -21,7 +21,7 @@
 <body>
     <main>
         <div class="container-fluid container-flex p-0 mainConteiner">
-            <div class="row d-none d-sm-flex  flex-sm-row p-0 m-0 riga">
+            <div class="row d-none d-sm-flex flex-sm-row p-0 m-0 riga">
                 <!-- SIDEBAR SINISTRA-->
                 <div class="col-sm-3 side-bar ps-3 pe-0">
                     <div class="menu">
@@ -103,135 +103,136 @@
                         <p class="pb-5">Bullet For My Valentine</p>
                     </div>
                 </div>
-            </div>
-            <!-- COLONNA CENTRALE -->
-            <div class="col sm-12 col-md-9 col-lg-7 central p-0 grey-bg"><!--ALTEZZA-->
-                <div id="bgDinamico">
-                    <div class="d-flex justify-content-between mb-4 px-4">
-                        <!--top-->
-                        <div class="mt-4">
-                            <!--freccette avanti-indietro-->
-                            <a href="#">
-                                <img src="./assets/imgs/svg/left-arrow-svgrepo-com (1).svg" alt=""
-                                    class="freccette" /></a>
+                <!-- COLONNA CENTRALE -->
+                <div class="col sm-12 col-md-9 col-lg-7 central p-0 grey-bg"><!--ALTEZZA-->
+                    <div id="bgDinamico">
+                        <div class="d-flex justify-content-between mb-4 px-4">
+                            <!--top-->
+                            <div class="mt-4">
+                                <!--freccette avanti-indietro-->
+                                <a href="#">
+                                    <img src="./assets/imgs/svg/left-arrow-svgrepo-com (1).svg" alt=""
+                                        class="freccette" /></a>
 
-                            <a href="#"><img src="./assets/imgs/svg/right-arrow-svgrepo-com (2).svg" alt=""
-                                    class="freccette" /></a>
-                        </div>
-                        <div class="dropdown mt-4">
-                            <button id="dropdownUtente"
-                                class="btn grey-bg3 text-white rounded-5 dropdown-toggle ps-0 py-0" type="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <span class="ps-0 pe-5 fw-bold"><img class="imgUtente" src="https://placedog.net/30"
-                                        alt="img utente" class="img-fluid" />
-                                    PLACEHOLDER</span>
-                            </button>
-                            <ul id="tendinaUtente" class="dropdown-menu dropdown-menu-end dropdown-menu-dark rounded-1">
-                                <li><a class="dropdown-item" href="#">PLACEHOLDER</a></li>
-                                <li><a class="dropdown-item" href="#">PLACEHOLDER</a></li>
-                                <li><a class="dropdown-item" href="#">PLACEHOLDER</a></li>
-                                <li>
-                                    <hr class="text-white my-1" />
-                                </li>
-                                <li><a class="dropdown-item" href="#">Cambia Utente</a></li>
-                            </ul>
-                        </div>
-                        <!--tendina utente-->
-                    </div>
-                    <div class="d-flex flex-column flex-lg-row text-light py-3 px-4 align-items-center"
-                        id="header-album-page">
-                        <img src="" alt="Foto album" />
-                        <div class="d-flex flex-column ms-2">
-                            <h6 class="d-none d-lg-block">ALBUM</h6>
-                            <h1 id="titlE"></h1>
-                            <div class="d-flex gap-2" id="description">
-                                <img id="foto-artistA" src="" alt="" />
-                                <p></p>
-                                <p class="m-0"></p>
+                                <a href="#"><img src="./assets/imgs/svg/right-arrow-svgrepo-com (2).svg" alt=""
+                                        class="freccette" /></a>
                             </div>
+                            <div class="dropdown mt-4">
+                                <button id="dropdownUtente"
+                                    class="btn grey-bg3 text-white rounded-5 dropdown-toggle ps-0 py-0" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="ps-0 pe-5 fw-bold"><img class="imgUtente" src="https://placedog.net/30"
+                                            alt="img utente" class="img-fluid" />
+                                        PLACEHOLDER</span>
+                                </button>
+                                <ul id="tendinaUtente"
+                                    class="dropdown-menu dropdown-menu-end dropdown-menu-dark rounded-1">
+                                    <li><a class="dropdown-item" href="#">PLACEHOLDER</a></li>
+                                    <li><a class="dropdown-item" href="#">PLACEHOLDER</a></li>
+                                    <li><a class="dropdown-item" href="#">PLACEHOLDER</a></li>
+                                    <li>
+                                        <hr class="text-white my-1" />
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Cambia Utente</a></li>
+                                </ul>
+                            </div>
+                            <!--tendina utente-->
                         </div>
-                    </div>
-                </div>
-                <div class="d-flex flex-column text-light" id="rows-tracks-list">
-                    <div class="container pushaAlto" id="containeR-trackS">
-                        <div class="row border-bottom">
-                            <div class="d-flex align-items-center" id="icoN">
-                                <div class="play-badge3 me-4 ms-1">
-                                    <img id="randomAlbumSong" class="playButton" src="./assets/imgs/svg/play-fill.svg"
-                                        alt="play button" />
+                        <div class="d-flex flex-column flex-lg-row text-light py-3 px-4 align-items-center"
+                            id="header-album-page">
+                            <img src="" alt="Foto album" />
+                            <div class="d-flex flex-column ms-2">
+                                <h6 class="d-none d-lg-block">ALBUM</h6>
+                                <h1 id="titlE"></h1>
+                                <div class="d-flex gap-2" id="description">
+                                    <img id="foto-artistA" src="" alt="" />
+                                    <p></p>
+                                    <p class="m-0"></p>
                                 </div>
-                                <span class="me-3"><i class="far fa-heart"></i></span>
-                                <span class="me-3"><i class="far fa-arrow-alt-circle-down"></i></span>
-                                <span class="me-3"><i class="fas fa-ellipsis-h"></i></span>
                             </div>
-                            <div class="col-1 text-end ps-0">
-                                <p class="m-0">#</p>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column text-light" id="rows-tracks-list">
+                        <div class="container " id="containeR-trackS">
+                            <div class="row border-bottom">
+                                <div class="d-flex align-items-center" id="icoN">
+                                    <div class="play-badge3 me-4 ms-1">
+                                        <img id="randomAlbumSong" class="playButton"
+                                            src="./assets/imgs/svg/play-fill.svg" alt="play button" />
+                                    </div>
+                                    <span class="me-3"><i class="far fa-heart"></i></span>
+                                    <span class="me-3"><i class="far fa-arrow-alt-circle-down"></i></span>
+                                    <span class="me-3"><i class="fas fa-ellipsis-h"></i></span>
+                                </div>
+                                <div class="col-1 text-end ps-0">
+                                    <p class="m-0">#</p>
+                                </div>
+                                <div class="col-6 p-0">
+                                    <p class="d-flex justify-content-center">TITOLO</p>
+                                </div>
+                                <div class="col-4 p-0">
+                                    <p class="m-0 ms-3">RIPRODUZIONI</p>
+                                </div>
+                                <div class="col-1 p-0 text-center">
+                                    <span><i class="far fa-clock"></i></span>
+                                </div>
                             </div>
-                            <div class="col-6 p-0">
-                                <p class="d-flex justify-content-center">TITOLO</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SIDEBAR DESTRA -->
+                <div class="col-sm-2 column-dx text-center p-0">
+                    <!-- Contenuto della colonna DESTRA -->
+                    <div class="col-2 column-dx text-center p-0">
+                        <div class="col-12 mt-4">
+                            <div class="row">
+                                <div class="col-8 d-flex justify-content-start ps-4 fs-5">
+                                    Attività amici
+                                </div>
+                                <div class="col-4">
+                                    <i class="bi bi-person-fill-add ps-0 pe-2 fs-5"></i><i
+                                        class="bi bi-x-lg pe-0 fs-5"></i>
+                                </div>
                             </div>
-                            <div class="col-4 p-0">
-                                <p class="m-0 ms-3">RIPRODUZIONI</p>
+                            <div class="row mt-4">
+                                <div class="col-lg-3 col-xl-2 ps-3">
+                                    <img src="https://placedog.net/300" alt="" class="imgUtente" />
+                                </div>
+                                <div class="col-lg-9 col-xl-7 d-flex flex-column align-items-start">
+                                    <span class="pt-0 fw-bold">Charlie Hookham</span>
+                                    <span class="small-text">In camera &bull; Yumi Zouma</span>
+                                    <span class="small-text2">&#9737; EP III</span>
+                                </div>
+                                <div class="col-3 d-lg-none d-xl-block">4 ore fa</div>
                             </div>
-                            <div class="col-1 p-0 text-center">
-                                <span><i class="far fa-clock"></i></span>
+
+                            <div class="row mt-5">
+                                <div class="col-lg-3 col-xl-2 ps-3">
+                                    <img src="https://placedog.net/200" alt="" class="imgUtente" />
+                                </div>
+                                <div class="col-lg-9 col-xl-7 d-flex flex-column align-items-start">
+                                    <span class="pt-0 fw-bold">lightdark02</span>
+                                    <span class="small-text">Aimed to Kill &bull; Jaed Lemac</span>
+                                    <span class="small-text2">&#9737; Aimed to Kill</span>
+                                </div>
+                                <div class="col-3 d-lg-none d-xl-block">8 ore fa</div>
+                            </div>
+                            <div class="row mt-5">
+                                <div class="col-lg-3 col-xl-2 ps-3">
+                                    <img src="https://placedog.net/320" alt="" class="imgUtente" />
+                                </div>
+                                <div class="col-lg-9 col-xl-7 d-flex flex-column align-items-start">
+                                    <span class="pt-0 fw-bold">Valeria Traverso</span>
+                                    <span class="small-text">New Kings &bull; Sleeping Wolf</span>
+                                    <span class="small-text2">&#9835; Twin Badass mood</span>
+                                </div>
+                                <div class="col-3 d-lg-none d-xl-block">3 giorni</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- SIDEBAR DESTRA -->
-            <div class="col-sm-2 column-dx text-center p-0">
-                <!-- Contenuto della colonna DESTRA -->
-                <div class="col-2 column-dx text-center p-0">
-                    <div class="col-12 mt-4">
-                        <div class="row">
-                            <div class="col-8 d-flex justify-content-start ps-4 fs-5">
-                                Attività amici
-                            </div>
-                            <div class="col-4">
-                                <i class="bi bi-person-fill-add ps-0 pe-2 fs-5"></i><i class="bi bi-x-lg pe-0 fs-5"></i>
-                            </div>
-                        </div>
-                        <div class="row mt-4">
-                            <div class="col-lg-3 col-xl-2 ps-3">
-                                <img src="https://placedog.net/300" alt="" class="imgUtente" />
-                            </div>
-                            <div class="col-lg-9 col-xl-7 d-flex flex-column align-items-start">
-                                <span class="pt-0 fw-bold">Charlie Hookham</span>
-                                <span class="small-text">In camera &bull; Yumi Zouma</span>
-                                <span class="small-text2">&#9737; EP III</span>
-                            </div>
-                            <div class="col-3 d-lg-none d-xl-block">4 ore fa</div>
-                        </div>
-
-                        <div class="row mt-5">
-                            <div class="col-lg-3 col-xl-2 ps-3">
-                                <img src="https://placedog.net/200" alt="" class="imgUtente" />
-                            </div>
-                            <div class="col-lg-9 col-xl-7 d-flex flex-column align-items-start">
-                                <span class="pt-0 fw-bold">lightdark02</span>
-                                <span class="small-text">Aimed to Kill &bull; Jaed Lemac</span>
-                                <span class="small-text2">&#9737; Aimed to Kill</span>
-                            </div>
-                            <div class="col-3 d-lg-none d-xl-block">8 ore fa</div>
-                        </div>
-                        <div class="row mt-5">
-                            <div class="col-lg-3 col-xl-2 ps-3">
-                                <img src="https://placedog.net/320" alt="" class="imgUtente" />
-                            </div>
-                            <div class="col-lg-9 col-xl-7 d-flex flex-column align-items-start">
-                                <span class="pt-0 fw-bold">Valeria Traverso</span>
-                                <span class="small-text">New Kings &bull; Sleeping Wolf</span>
-                                <span class="small-text2">&#9835; Twin Badass mood</span>
-                            </div>
-                            <div class="col-3 d-lg-none d-xl-block">3 giorni</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         </div>
     </main>
     <footer>

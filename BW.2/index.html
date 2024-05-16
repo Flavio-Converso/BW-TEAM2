@@ -102,268 +102,271 @@
                         <p class="pb-5">Bullet For My Valentine</p>
                     </div>
                 </div>
-            </div>
-            <!-- COLONNA CENTRALE
+
+                <!-- COLONNA CENTRALE
              <div class="col-sm-9 col-lg-7 text-light text-center p-0 central"></div>
           -->
-            <div class="col sm-12 col-md-9 col-lg-7 grey-bg px-5 central pushaAlto"><!--ALTEZZA-->
-                <div class="d-flex justify-content-between my-4">
-                    <!--top-->
-                    <div>
-                        <!--freccette avanti-indietro-->
+                <div class="col sm-12 col-md-9 col-lg-7 grey-bg px-5 central pushaAlto"><!--ALTEZZA-->
+                    <div class="d-flex justify-content-between my-4">
+                        <!--top-->
+                        <div>
+                            <!--freccette avanti-indietro-->
 
-                        <a href="#">
-                            <img src="./assets/imgs/svg/left-arrow-svgrepo-com (1).svg" alt="" class="freccette" /></a>
+                            <a href="#">
+                                <img src="./assets/imgs/svg/left-arrow-svgrepo-com (1).svg" alt=""
+                                    class="freccette" /></a>
 
-                        <a href="#"><img src="./assets/imgs/svg/right-arrow-svgrepo-com (2).svg" alt=""
-                                class="freccette" /></a>
+                            <a href="#"><img src="./assets/imgs/svg/right-arrow-svgrepo-com (2).svg" alt=""
+                                    class="freccette" /></a>
+                        </div>
+                        <div class="dropdown">
+                            <button id="dropdownUtente"
+                                class="btn grey-bg3 text-white rounded-5 dropdown-toggle ps-0 py-0" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="ps-0 pe-5 fw-bold"><img class="imgUtente" src="https://placedog.net/30"
+                                        alt="img utente" class="img-fluid" />
+                                    PLACEHOLDER</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark rounded-1">
+                                <li><a class="dropdown-item" href="#">PLACEHOLDER</a></li>
+                                <li><a class="dropdown-item" href="#">PLACEHOLDER</a></li>
+                                <li><a class="dropdown-item" href="#">PLACEHOLDER</a></li>
+                                <li>
+                                    <hr class="text-white my-1" />
+                                </li>
+                                <li><a class="dropdown-item" href="#">Cambia Utente</a></li>
+                            </ul>
+                        </div>
+                        <!--tendina utente-->
                     </div>
-                    <div class="dropdown">
-                        <button id="dropdownUtente" class="btn grey-bg3 text-white rounded-5 dropdown-toggle ps-0 py-0"
-                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="ps-0 pe-5 fw-bold"><img class="imgUtente" src="https://placedog.net/30"
-                                    alt="img utente" class="img-fluid" />
-                                PLACEHOLDER</span>
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark rounded-1">
-                            <li><a class="dropdown-item" href="#">PLACEHOLDER</a></li>
-                            <li><a class="dropdown-item" href="#">PLACEHOLDER</a></li>
-                            <li><a class="dropdown-item" href="#">PLACEHOLDER</a></li>
-                            <li>
-                                <hr class="text-white my-1" />
-                            </li>
-                            <li><a class="dropdown-item" href="#">Cambia Utente</a></li>
-                        </ul>
-                    </div>
-                    <!--tendina utente-->
-                </div>
-                <div class="container-fluid text-white gradient-main-card p-3 mt-3">
-                    <div class="row justify-content-center">
-                        <div class="col-10 col-lg-4 col-xxl-3 d-flex align-items-center justify-content-center p-0 p-xl-2"
-                            id="first-album"></div>
-                        <div class="col-10 col-lg-8 col-xxl-9 d-flex">
-                            <div class="row">
-                                <div class="d-none col-12 d-xl-flex justify-content-between align-items-center mb-1">
-                                    <p class="m-0 py-1 fw-bold">ALBUM</p>
-                                    <a href="#"
-                                        class="text-decoration-none grey-text2 rounded-5 grey-bg2 px-3 py-1">NASCONDI
-                                        ANNUNCI</a>
-                                </div>
+                    <div class="container-fluid text-white gradient-main-card p-3 mt-3">
+                        <div class="row justify-content-center">
+                            <div class="col-10 col-lg-4 col-xxl-3 d-flex align-items-center justify-content-center p-0 p-xl-2"
+                                id="first-album"></div>
+                            <div class="col-10 col-lg-8 col-xxl-9 d-flex">
                                 <div class="row">
-                                    <div class="col-12 d-flex justify-content-center d-lg-block">
-                                        <h2 id="titoloAlbum" class="fs-2"></h2>
+                                    <div
+                                        class="d-none col-12 d-xl-flex justify-content-between align-items-center mb-1">
+                                        <p class="m-0 py-1 fw-bold">ALBUM</p>
+                                        <a href="#"
+                                            class="text-decoration-none grey-text2 rounded-5 grey-bg2 px-3 py-1">NASCONDI
+                                            ANNUNCI</a>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 d-flex justify-content-center d-lg-block">
-                                        <p id="artistaAlbum"></p>
+                                    <div class="row">
+                                        <div class="col-12 d-flex justify-content-center d-lg-block">
+                                            <h2 id="titoloAlbum" class="fs-2"></h2>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 d-flex justify-content-center d-lg-block">
-                                        <p>Ascolta i tuoi brani preferiti!</p>
+                                    <div class="row">
+                                        <div class="col-12 d-flex justify-content-center d-lg-block">
+                                            <p id="artistaAlbum"></p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 d-flex justify-content-center d-lg-block">
-                                        <button id="playButtonMain" class="px-4 py-2 rounded-5 fw-bold">
-                                            Play
-                                        </button>
-                                        <button class="btn btn-dark ms-sm-3 px-4 py-2 rounded-5 fw-bold">
-                                            Salva
-                                        </button>
-                                        <button class="btn px-4 py-2 border-0" type="button" data-bs-toggle="dropdown"
-                                            aria-expanded="false">
-                                            <img id="dottedMenu" src="./assets/imgs/svg/three-dots.svg"
-                                                alt="dotted menu" />
-                                        </button>
-                                        <ul class="dropdown-menu dropdown-menu-dark">
-                                            <li>
-                                                <a class="dropdown-item" href="#">PLACEHOLDER</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">PLACEHOLDER</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">PLACEHOLDER</a>
-                                            </li>
-                                        </ul>
+                                    <div class="row">
+                                        <div class="col-12 d-flex justify-content-center d-lg-block">
+                                            <p>Ascolta i tuoi brani preferiti!</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 d-flex justify-content-center d-lg-block">
+                                            <button id="playButtonMain" class="px-4 py-2 rounded-5 fw-bold">
+                                                Play
+                                            </button>
+                                            <button class="btn btn-dark ms-sm-3 px-4 py-2 rounded-5 fw-bold">
+                                                Salva
+                                            </button>
+                                            <button class="btn px-4 py-2 border-0" type="button"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                <img id="dottedMenu" src="./assets/imgs/svg/three-dots.svg"
+                                                    alt="dotted menu" />
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-dark">
+                                                <li>
+                                                    <a class="dropdown-item" href="#">PLACEHOLDER</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="#">PLACEHOLDER</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="#">PLACEHOLDER</a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="row mt-5 mb-5">
-                    <div class="col-12">
-                        <h4 class="text-white mb-4">Buonasera</h4>
-                        <div id="printHorizontalCards" class="row text-white"></div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-12">
-                        <h4 class="text-white mb-4">Altro che potrebbe piacerti</h4>
-                        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 text-white" id="row-artists-list">
+                    <div class="row mt-5 mb-5">
+                        <div class="col-12">
+                            <h4 class="text-white mb-4">Buonasera</h4>
+                            <div id="printHorizontalCards" class="row text-white"></div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-12 mt-4">
-                    <h4 class="text-white mb-4">Playlist</h4>
-                    <div class="row text-white">
-                        <div class="col-12 col-sm-6 col-lg-4 col-xl mb-3">
-                            <a href="#" class="text-decoration-none">
-                                <div class="card grey-vertical-card p-2 h-100">
-                                    <div class="position-relative">
-                                        <img src="./assets/imgs/search/image-8.jpg" class="card-img-top img-fluid"
-                                            alt="..." />
-                                        <div class="play-badge2">
-                                            <img class="playButton" src="./assets/imgs/svg/play-fill.svg"
-                                                alt="play button" />
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title text-white">Gym Hits</h5>
-                                        <p class="card-text text-secondary">
-                                            La playlist più calda del momento
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-12 col-sm-6 col-lg-4 col-xl mb-3">
-                            <a href="#" class="text-decoration-none">
-                                <div class="card grey-vertical-card p-2 h-100">
-                                    <div class="position-relative">
-                                        <img src="./assets/imgs/search/image-51.jpg" class="card-img-top img-fluid"
-                                            alt="..." />
-                                        <div class="play-badge2">
-                                            <img class="playButton" src="./assets/imgs/svg/play-fill.svg"
-                                                alt="play button" />
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title text-white">Tirati su</h5>
-                                        <p class="card-text text-secondary">
-                                            Estendi il tuo buonumore
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-12 col-sm-6 col-lg-4 col-xl mb-3">
-                            <a href="#" class="text-decoration-none">
-                                <div class="card grey-vertical-card p-2 h-100">
-                                    <div class="position-relative">
-                                        <img src="./assets/imgs/search/image-42.png" class="card-img-top img-fluid"
-                                            alt="..." />
-                                        <div class="play-badge2">
-                                            <img class="playButton" src="./assets/imgs/svg/play-fill.svg"
-                                                alt="play button" />
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title text-white">Pop Hits</h5>
-                                        <p class="card-text text-secondary">
-                                            The hits of tomorrow
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-12 col-sm-6 col-lg-4 col-xl mb-3 h">
-                            <a href="#" class="text-decoration-none">
-                                <div class="card grey-vertical-card p-2 h-100">
-                                    <div class="position-relative">
-                                        <img src="./assets/imgs/search/image-28.jpg" class="card-img-top img-fluid"
-                                            alt="..." />
-                                        <div class="play-badge2">
-                                            <img class="playButton" src="./assets/imgs/svg/play-fill.svg"
-                                                alt="play button" />
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title text-white">Afro Hits</h5>
-                                        <p class="card-text text-secondary">
-                                            Il meglio per te!
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-12 col-sm-6 col-lg-4 col-xl mb-3">
-                            <a href="#" class="text-decoration-none">
-                                <div class="card grey-vertical-card p-2 h-100">
-                                    <div class="position-relative">
-                                        <img src="./assets/imgs/search/image-10.jpg" class="card-img-top img-fluid"
-                                            alt="..." />
-                                        <div class="play-badge2">
-                                            <img class="playButton" src="./assets/imgs/svg/play-fill.svg"
-                                                alt="play button" />
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title text-white">Lo-Fi Hits</h5>
-                                        <p class="card-text text-secondary">
-                                            La playlist che sta spopolando!
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- SIDEBAR DESTRA -->
-            <div class="col-2 column-dx text-center p-0">
-                <div class="col-12 mt-4">
                     <div class="row">
-                        <div class="col-8 d-flex justify-content-start ps-4 fs-5">
-                            Attività amici
+                        <div class="col-12">
+                            <h4 class="text-white mb-4">Altro che potrebbe piacerti</h4>
+                            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 text-white" id="row-artists-list">
+                            </div>
                         </div>
-                        <div class="col-4">
-                            <i class="bi bi-person-fill-add ps-0 pe-2 fs-5"></i><i class="bi bi-x-lg pe-0 fs-5"></i>
-                        </div>
-                    </div>
-                    <div class="row mt-4">
-                        <div class="col-lg-3 col-xl-2 ps-3">
-                            <img src="https://placedog.net/300" alt="" class="imgUtente" />
-                        </div>
-                        <div class="col-lg-9 col-xl-7 d-flex flex-column align-items-start">
-                            <span class="pt-0 fw-bold">Charlie Hookham</span>
-                            <span class="small-text">In camera &bull; Yumi Zouma</span>
-                            <span class="small-text2">&#9737; EP III</span>
-                        </div>
-                        <div class="col-3 d-lg-none d-xl-block">4 ore fa</div>
                     </div>
 
-                    <div class="row mt-5">
-                        <div class="col-lg-3 col-xl-2 ps-3">
-                            <img src="https://placedog.net/200" alt="" class="imgUtente" />
+                    <div class="col-12 mt-4">
+                        <h4 class="text-white mb-4">Playlist</h4>
+                        <div class="row text-white">
+                            <div class="col-12 col-sm-6 col-lg-4 col-xl mb-3">
+                                <a href="#" class="text-decoration-none">
+                                    <div class="card grey-vertical-card p-2 h-100">
+                                        <div class="position-relative">
+                                            <img src="./assets/imgs/search/image-8.jpg" class="card-img-top img-fluid"
+                                                alt="..." />
+                                            <div class="play-badge2">
+                                                <img class="playButton" src="./assets/imgs/svg/play-fill.svg"
+                                                    alt="play button" />
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title text-white">Gym Hits</h5>
+                                            <p class="card-text text-secondary">
+                                                La playlist più calda del momento
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-4 col-xl mb-3">
+                                <a href="#" class="text-decoration-none">
+                                    <div class="card grey-vertical-card p-2 h-100">
+                                        <div class="position-relative">
+                                            <img src="./assets/imgs/search/image-51.jpg" class="card-img-top img-fluid"
+                                                alt="..." />
+                                            <div class="play-badge2">
+                                                <img class="playButton" src="./assets/imgs/svg/play-fill.svg"
+                                                    alt="play button" />
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title text-white">Tirati su</h5>
+                                            <p class="card-text text-secondary">
+                                                Estendi il tuo buonumore
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-4 col-xl mb-3">
+                                <a href="#" class="text-decoration-none">
+                                    <div class="card grey-vertical-card p-2 h-100">
+                                        <div class="position-relative">
+                                            <img src="./assets/imgs/search/image-42.png" class="card-img-top img-fluid"
+                                                alt="..." />
+                                            <div class="play-badge2">
+                                                <img class="playButton" src="./assets/imgs/svg/play-fill.svg"
+                                                    alt="play button" />
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title text-white">Pop Hits</h5>
+                                            <p class="card-text text-secondary">
+                                                The hits of tomorrow
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-4 col-xl mb-3 h">
+                                <a href="#" class="text-decoration-none">
+                                    <div class="card grey-vertical-card p-2 h-100">
+                                        <div class="position-relative">
+                                            <img src="./assets/imgs/search/image-28.jpg" class="card-img-top img-fluid"
+                                                alt="..." />
+                                            <div class="play-badge2">
+                                                <img class="playButton" src="./assets/imgs/svg/play-fill.svg"
+                                                    alt="play button" />
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title text-white">Afro Hits</h5>
+                                            <p class="card-text text-secondary">
+                                                Il meglio per te!
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-4 col-xl mb-3">
+                                <a href="#" class="text-decoration-none">
+                                    <div class="card grey-vertical-card p-2 h-100">
+                                        <div class="position-relative">
+                                            <img src="./assets/imgs/search/image-10.jpg" class="card-img-top img-fluid"
+                                                alt="..." />
+                                            <div class="play-badge2">
+                                                <img class="playButton" src="./assets/imgs/svg/play-fill.svg"
+                                                    alt="play button" />
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title text-white">Lo-Fi Hits</h5>
+                                            <p class="card-text text-secondary">
+                                                La playlist che sta spopolando!
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                        <div class="col-lg-9 col-xl-7 d-flex flex-column align-items-start">
-                            <span class="pt-0 fw-bold">lightdark02</span>
-                            <span class="small-text">Aimed to Kill &bull; Jaed Lemac</span>
-                            <span class="small-text2">&#9737; Aimed to Kill</span>
-                        </div>
-                        <div class="col-3 d-lg-none d-xl-block">8 ore fa</div>
                     </div>
-                    <div class="row mt-5">
-                        <div class="col-lg-3 col-xl-2 ps-3">
-                            <img src="https://placedog.net/320" alt="" class="imgUtente" />
+                </div>
+                <!-- SIDEBAR DESTRA -->
+                <div class="col-2 column-dx text-center p-0">
+                    <div class="col-12 mt-4">
+                        <div class="row">
+                            <div class="col-8 d-flex justify-content-start ps-4 fs-5">
+                                Attività amici
+                            </div>
+                            <div class="col-4">
+                                <i class="bi bi-person-fill-add ps-0 pe-2 fs-5"></i><i class="bi bi-x-lg pe-0 fs-5"></i>
+                            </div>
                         </div>
-                        <div class="col-lg-9 col-xl-7 d-flex flex-column align-items-start">
-                            <span class="pt-0 fw-bold">Valeria Traverso</span>
-                            <span class="small-text">New Kings &bull; Sleeping Wolf</span>
-                            <span class="small-text2">&#9835; Twin Badass mood</span>
+                        <div class="row mt-4">
+                            <div class="col-lg-3 col-xl-2 ps-3">
+                                <img src="https://placedog.net/300" alt="" class="imgUtente" />
+                            </div>
+                            <div class="col-lg-9 col-xl-7 d-flex flex-column align-items-start">
+                                <span class="pt-0 fw-bold">Charlie Hookham</span>
+                                <span class="small-text">In camera &bull; Yumi Zouma</span>
+                                <span class="small-text2">&#9737; EP III</span>
+                            </div>
+                            <div class="col-3 d-lg-none d-xl-block">4 ore fa</div>
                         </div>
-                        <div class="col-3 d-lg-none d-xl-block">3 giorni</div>
+
+                        <div class="row mt-5">
+                            <div class="col-lg-3 col-xl-2 ps-3">
+                                <img src="https://placedog.net/200" alt="" class="imgUtente" />
+                            </div>
+                            <div class="col-lg-9 col-xl-7 d-flex flex-column align-items-start">
+                                <span class="pt-0 fw-bold">lightdark02</span>
+                                <span class="small-text">Aimed to Kill &bull; Jaed Lemac</span>
+                                <span class="small-text2">&#9737; Aimed to Kill</span>
+                            </div>
+                            <div class="col-3 d-lg-none d-xl-block">8 ore fa</div>
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-lg-3 col-xl-2 ps-3">
+                                <img src="https://placedog.net/320" alt="" class="imgUtente" />
+                            </div>
+                            <div class="col-lg-9 col-xl-7 d-flex flex-column align-items-start">
+                                <span class="pt-0 fw-bold">Valeria Traverso</span>
+                                <span class="small-text">New Kings &bull; Sleeping Wolf</span>
+                                <span class="small-text2">&#9835; Twin Badass mood</span>
+                            </div>
+                            <div class="col-3 d-lg-none d-xl-block">3 giorni</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
 
     </main>
