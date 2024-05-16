@@ -43,9 +43,11 @@ const renderAlbum = function (album) {
   const description = document.querySelector("#description > p");
   const descriptionMobile = document.querySelector("#description > p");
   description.innerHTML = `
-    ${album.artist.name} <span class="">- ${realeaseYear[0]} - ${album.nb_tracks
-    } brani, <span class="grey-light">${Math.floor(album.duration / 60)} min ${album.duration % 60
-    } sec</span></span>
+    ${album.artist.name} <span class="">- ${realeaseYear[0]} - ${
+    album.nb_tracks
+  } brani, <span class="grey-light">${Math.floor(album.duration / 60)} min ${
+    album.duration % 60
+  } sec</span></span>
     `;
   //setColorFromImage(albumCoverBig, "bgDinamico");
   setColorGradient(albumCoverBig, "bgDinamico");
@@ -81,7 +83,7 @@ const renderAlbum = function (album) {
             <p class="ms-0">${track.trackNumber}</p>
         </div>
         <div class="col-1 p-0 d-flex align-items-center justify-content-center">
-          <button class="bg-transparent border-0 play-button " type="button" data-index="${i}"><i class="bi bi-play-fill fs-1"></i></button>
+          <i id="playBuTton" class="bi bi-play-fill fs-1" data-index="${i}" style="cursor:pointer"></i>
         </div>
         <div class="col-6 p-0">
           <h5 class="m-0 fw-bold">${track.title}</h5>
@@ -93,8 +95,8 @@ const renderAlbum = function (album) {
         <div class="col-1 p-0 d-flex align-items-center justify-content-center">
           <p class="m-0">
           ${Math.floor(track.duration / 60)}:${(track.duration % 60)
-        .toString()
-        .padStart(2, "0")}</p>
+      .toString()
+      .padStart(2, "0")}</p>
         </div>
     `;
     containerTracks.appendChild(rowTrack);
@@ -105,19 +107,16 @@ const renderAlbum = function (album) {
     let target = event.target;
 
     // If the clicked element is an icon within the button, use the parent button as the target
-    if (
-      target.tagName === "I" &&
-      target.parentElement.classList.contains("play-button")
-    ) {
+    if (target.tagName === "I" && target.parentElement.id === "playBuTton") {
       target = target.parentElement;
     }
 
     // Check if the target is a play button
-    if (target.matches(".play-button")) {
+    if (target.id === "playBuTton") {
       // Get the track index from its data-index attribute
       const trackIndex = target
         .closest(".row")
-        .querySelector(".play-button")
+        .querySelector("#playBuTton")
         .getAttribute("data-index");
 
       // Make sure tracksArray is defined and contains at least one element
@@ -171,7 +170,10 @@ function playTrack(album, title, artist, previewUrl) {
     );
   }
 }
-
+let randomAlbumSong = document.getElementById("randomAlbumSong");
+randomAlbumSong.addEventListener("click", function () {
+  console.log("daje");
+});
 // Funzione per impostare il gradiente del background in base all'immagine dell'album
 function setColorGradient(albumCoverBig, bgDinamico) {
   const element = document.getElementById(bgDinamico);
