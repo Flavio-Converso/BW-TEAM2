@@ -71,7 +71,10 @@ const renderAlbum = function (album) {
   localStorage.setItem("albumTracks", JSON.stringify(tracksArray));
 
   // Ora possiamo anche creare l'HTML per ogni traccia e aggiungerlo al container
+
   tracksArray.forEach((track, i) => {
+    let randomVisual = Math.floor(Math.random() * 900) + 100;
+    let randomVisual2 = Math.floor(Math.random() * 900) + 100;
     const rowTrack = document.createElement("div");
     rowTrack.classList.add("row", "mt-3");
     rowTrack.innerHTML = `
@@ -87,10 +90,13 @@ const renderAlbum = function (album) {
           <p class="m-0 grey-light">${track.artist}</p>
         </div>
         <div class="col-3 p-0 d-flex align-items-center">
-          <p class="m-0">123</p>
+          <p class="m-0">${randomVisual + "." + randomVisual2}</p>
         </div>
         <div class="col-1 p-0 d-flex align-items-center justify-content-center">
-          <p class="m-0">${(track.duration / 60).toFixed(2)}</p>
+          <p class="m-0">
+          ${Math.floor(track.duration / 60)}:${(track.duration % 60)
+      .toString()
+      .padStart(2, "0")}</p>
         </div>
     `;
     containerTracks.appendChild(rowTrack);
