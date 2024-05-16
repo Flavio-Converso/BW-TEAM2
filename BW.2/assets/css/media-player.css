@@ -1,0 +1,332 @@
+@import url(//db.onlinewebfonts.com/c/860c3ec7bbc5da3e97233ccecafe512e?family=Circular+Std+Book);
+
+* {
+    box-sizing: border-box;
+    font-family: "circular std book", sans-serif;
+}
+
+.music-player {
+    --primary-color: #ddd;
+    --padding: 1em;
+    background-color: #111;
+    position: fixed;
+    bottom: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    background-color: #333;
+    padding: 20px;
+    box-sizing: border-box;
+    height: 7rem;
+    color: var(--primary-color);
+}
+
+i {
+    color: #acacac;
+}
+
+i:hover {
+    color: #dadada;
+}
+
+.song-bar {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    width: 100%;
+    padding: .5vw;
+}
+
+.song-infos {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.image-container {
+    --size: 4.5em;
+    flex-shrink: 0;
+    width: 6vh;
+    height: 6vh;;
+}
+.divider{
+    display: none;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    box-shadow: .2vh .1vh 2vh black;
+    bottom:1.5vh;
+    z-index: 2000;
+    display: none;
+}
+
+.song-description p {
+    margin: 0.2vw;
+}
+
+.title,
+.artist {
+    overflow: hidden;
+}
+
+.title:hover,
+.artist:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.artist {
+    color: var(--secondary-color);
+}
+
+.icons {
+    display: flex;
+    gap: 1em;
+}
+#divisore{
+    display: none;
+}
+.progress-controller {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+    color: var(--secondary-color);
+}
+
+.control-buttons {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    z-index: 1000;
+}
+
+.play-pause {
+    display: inline-block;
+    padding: 1em;
+    background-color: var(--primary-color);
+    color: #111;
+    border-radius: 50%;
+    box-shadow: .2vh .1vh 2vh black;
+}
+#playPauseBtn{
+    z-index: 1;
+}
+.play-pause:hover {
+    transform: scale(1.1);
+    color: #111;
+}
+
+.progress-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-bar {
+    position: relative;
+    height: 4px;
+    border-radius: 10px;
+    width: 30%;
+    background-color: #ccc4;
+}
+
+.progress {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #b3b3b3;
+}
+
+.progress-reference {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.progress-bar:hover .progress {
+    background-color: green;
+}
+
+.progress-bar:hover .progress::after {
+    content: "";
+    position: absolute;
+    --size: 1em;
+    width: var(--size);
+    height: var(--size);
+    right: 0;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    transform: translate(50%, calc(2px - 50%));
+}
+
+.progress-bar {
+    display: inline-block;
+}
+
+.other-features {
+    position: absolute;
+    right: var(--padding);
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+.volume-bar {
+    display: flex;
+    align-items: center;
+    gap: .7em;
+}
+
+.volume-bar .progress-bar {
+    width: 6em;
+}
+
+.volume-bar .progress-bar:hover .progress::after {
+    --size: .8em;
+}
+
+.volume-reference {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.active {
+    color: green;
+}
+.play-button-card{
+    z-index: 100000000;
+}
+
+@media screen and (max-width: 767px) {
+    .music-player {
+        margin-bottom: 2vh;
+        border-radius: 2.8vh;
+        width: 90%;
+        height: 8%;
+        position: fixed; /* Aggiunto */
+        bottom: 5.6vh;
+        left:2vh
+    }
+    #divisore{
+        display: inline-block;
+    }
+    .other-features {
+        display: none;
+    }
+
+    .song-infos img {
+        position: relative;
+        left:2vh;
+        box-shadow: .2vh .1vh 2vh black;
+        bottom:1.5vh;
+        z-index: 2000;
+    }
+
+    .progress-container {
+        width: 320%; /* Modificato */
+        position: relative;
+        top: 2.2vh;
+    }
+
+    #randomBtn,
+    #backwardBtn,
+    #forwardBtn,
+    #rewindBtn,
+    #heartBtn {
+        display: none;
+    }
+
+    .song-description {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        text-overflow: ellipsis; /* Aggiunto */
+        animation: scroll 15s linear infinite;
+        white-space: nowrap;
+    }
+    #desc_div{
+        width: 100vw;
+        position: relative;
+        right: 1.5vh;
+        bottom: 2vh;
+    }
+
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(50%);
+        }
+        100% {
+            transform: translateX(-90%);
+        }
+    }
+
+    #playPauseBtn {
+        position: absolute;
+        right: 4vh;
+        top: 1vh;
+    }
+
+    .current-time,
+    .total-time {
+        display: none;
+    }
+}
+@media screen and (max-width: 576px) {
+    .music-player {
+        margin-bottom: 2vh;
+        border-radius: 3vh;
+        width: 90%;
+        height: 8vh;
+    }
+    #playPauseBtn {
+        position: absolute;
+        right: 5vh;
+        top: .8vh;
+    }
+    .song-infos img {
+        position: relative;
+        left:2vh;
+        width: 5vh;
+        height: 5vh;
+        box-shadow: .2vh .1vh 2vh black;
+        bottom:1vh;
+        z-index: 2000;
+    }
+
+    .other-features {
+        display: none;
+    }
+
+
+    .progress-container {
+        width: 320%; /* Modificato */
+        position: relative;
+        top: 2.2vh;
+    }
+
+    .current-time,
+    .total-time {
+        display: none;
+    }
+}
+
