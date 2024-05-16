@@ -1,377 +1,375 @@
 /*************** CSS DI ANDREA *****************/
 
 html {
-  height: 100vh;
-  width: 100%;
+    height: 100vh;
+    width: 100%;
 }
 
 /* Imposta il main al 90% per lasciare spazio per il player */
 main {
-  height: 100%;
-  width: 100%;
-  padding: 0;
+    height: 100%;
+    width: 100%;
+    padding: 0;
 }
 
 /* Contenitore flessibile con altezza al 100% */
 .mainConteiner {
-  min-width: 100%;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 /* Imposta altezza delle righe al 100% */
 
 .riga {
-  height: 100%;
+    height: 100%;
 }
 
 /* Colonna sx */
 .side-bar {
-  position: fixed;
-  background-color: black;
-  height: 100%;
-  color: white;
+    position: fixed;
+    background-color: black;
+    height: 100%;
+    color: white;
 }
 
 /* Colonna dx */
 .column-dx {
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100%;
-  color: white;
-  background-color: black;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    color: white;
+    background-color: black;
 }
 
 .playlisT {
-  height: 64%;
-  overflow: auto;
+    height: 64%;
+    overflow: auto;
 }
 
 .playlisT p {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 .playlisT::-webkit-scrollbar {
-  width: 9px;
+    width: 9px;
 }
 
 .playlisT::-webkit-scrollbar-thumb {
-  background: #272727;
-  /* Colore del pollice della scrollbar */
+    background: #272727;
+    /* Colore del pollice della scrollbar */
 }
 
 .central {
-  margin-left: 25%;
+    margin-left: 25%;
 }
 
 .botton {
-  border: none;
-  /* Rimuove il bordo */
-  background: none;
-  /* Rimuove lo sfondo */
-  color: inherit;
-  /* Utilizza il colore del testo predefinito */
-  padding: 0;
-  /* Rimuove il padding */
-  font: inherit;
-  /* Utilizza il font predefinito */
-  cursor: pointer;
-  /* Mostra il cursore come puntatore */
-  outline: none;
-  /* Rimuove l'outline al focus */
+    border: none;
+    /* Rimuove il bordo */
+    background: none;
+    /* Rimuove lo sfondo */
+    color: inherit;
+    /* Utilizza il colore del testo predefinito */
+    padding: 0;
+    /* Rimuove il padding */
+    font: inherit;
+    /* Utilizza il font predefinito */
+    cursor: pointer;
+    /* Mostra il cursore come puntatore */
+    outline: none;
+    /* Rimuove l'outline al focus */
 }
 
 .menu2 a {
-  text-decoration: none;
-  color: white;
+    text-decoration: none;
+    color: white;
 }
 
 #cerca {
-  text-decoration: none;
-  color: white;
+    text-decoration: none;
+    color: white;
 }
 
 .search-icon {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .menu1 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .icon-spacing {
-  margin-right: 17px;
-  color: white;
+    margin-right: 17px;
+    color: white;
 }
 
 .search-input {
-  display: none;
-  padding: 0;
-  /*  border: 1px solid #5c5959;*/
-  border-radius: 15px;
-  transition: opacity 0.3s ease, width 0.3s ease;
-  width: 0;
-  opacity: 0;
+    display: none;
+    padding: 0;
+    /*  border: 1px solid #5c5959;*/
+    border-radius: 15px;
+    transition: opacity 0.3s ease, width 0.3s ease;
+    width: 0;
+    opacity: 0;
 }
 
 .search-container.active .search-input {
-  display: inline-block;
-  width: 15vw;
-  opacity: 1;
+    display: inline-block;
+    width: 15vw;
+    opacity: 1;
 }
 
 /* Quando si va sotto i 992px scompare la colonna dx e i caratteri diventano più piccoli */
 @media screen and (max-width: 992px) {
-  .column-dx {
-    display: none;
-    text-decoration: none;
-  }
+    .column-dx {
+        display: none;
+        text-decoration: none;
+    }
 
-  .menu1,
-  .menu2 a {
-    font-size: 12px;
-  }
+    .menu1,
+    .menu2 a {
+        font-size: 12px;
+    }
 
-  .menu2 a {
-    font-size: 12px;
-  }
+    .menu2 a {
+        font-size: 12px;
+    }
 }
 
 @media screen and (min-width: 576px) {
-  body {
-    height: 100%;
-  }
+    body {
+        height: 100%;
+    }
 
-  .menu2 {
-    display: none;
-  }
+    .menu2 {
+        display: none;
+    }
 }
 
 /* Sotto i 576px le icone diventa più grandi e spaziate tra loro */
 
 @media screen and (max-width: 576px) {
-  .side-bar {
-    position: relative;
-    height: 20%;
-  }
+    .side-bar {
+        position: relative;
+        height: 20%;
+    }
 
-  .icon {
-    font-size: 30px;
-  }
+    .icon {
+        font-size: 30px;
+    }
 
-  .menu1 {
-    justify-content: space-evenly;
-  }
+    .menu1 {
+        justify-content: space-evenly;
+    }
 
-  .central {
-    margin: 0;
-  }
+    .central {
+        margin: 0;
+    }
 
-  input {
-    border-radius: 20px;
-    line-height: 30px;
-    max-width: 95%;
-  }
+    input {
+        border-radius: 20px;
+        line-height: 30px;
+        max-width: 95%;
+    }
 
-  .playlisT {
-    display: none;
-  }
+    .playlisT {
+        display: none;
+    }
 
-  #cerca {
-    display: none;
-  }
+    #cerca {
+        display: none;
+    }
 
-  #library {
-    height: 30px;
-  }
+    #library {
+        height: 30px;
+    }
 
-  #search {
-    margin-bottom: 19px;
-  }
+    #search {
+        margin-bottom: 19px;
+    }
 }
 
 input {
-  background-color: rgb(20, 19, 19);
-  border: none;
-  border-radius: 20px;
-  color: white;
-  max-width: 95%;
+    background-color: rgb(20, 19, 19);
+    border: none;
+    border-radius: 20px;
+    color: white;
+    max-width: 95%;
 }
 
 /*************   CSS DI FLAVIO *************/
 
 .green-spotify {
-  color: #16e05d;
+    color: #16e05d;
 }
 
 .grey-bg {
-  background-color: rgb(29, 29, 29);
+    background-color: rgb(29, 29, 29);
 }
 
 .grey-bg2 {
-  background-color: rgb(41, 41, 41);
+    background-color: rgb(41, 41, 41);
 }
 
 .grey-bg3 {
-  background-color: rgb(20, 20, 20);
+    background-color: rgb(20, 20, 20);
 }
 
 .grey-bg2:hover {
-  background-color: rgb(51, 51, 51);
+    background-color: rgb(51, 51, 51);
 }
 
 .grey-text2 {
-  color: rgb(102, 102, 102);
+    color: rgb(102, 102, 102);
 }
 
 .small-text {
-  font-size: 13px;
+    font-size: 13px;
 }
 
 .small-text2 {
-  font-size: 15px;
+    font-size: 15px;
 }
 
 .gradient-main-card {
-  background: linear-gradient(
-    184deg,
-    rgba(35, 35, 35, 1) 0%,
-    rgba(25, 25, 25, 1) 33%,
-    rgba(16, 16, 16, 1) 58%,
-    rgba(0, 0, 0, 1) 100%
-  );
+    background: linear-gradient(184deg,
+            rgba(35, 35, 35, 1) 0%,
+            rgba(25, 25, 25, 1) 33%,
+            rgba(16, 16, 16, 1) 58%,
+            rgba(0, 0, 0, 1) 100%);
 }
 
 .imgUtente {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
 
 .freccette {
-  width: 40px;
-  padding-right: 10px;
-  filter: brightness(90%);
-  opacity: 0.9;
+    width: 40px;
+    padding-right: 10px;
+    filter: brightness(90%);
+    opacity: 0.9;
 }
 
 .freccette:hover {
-  filter: brightness(100%);
-  opacity: 1;
+    filter: brightness(100%);
+    opacity: 1;
 }
 
 #dottedMenu {
-  width: 30px;
-  filter: brightness(80%);
-  opacity: 0.8;
+    width: 30px;
+    filter: brightness(80%);
+    opacity: 0.8;
 }
 
 #dottedMenu:hover {
-  filter: brightness(100%);
-  opacity: 1;
+    filter: brightness(100%);
+    opacity: 1;
 }
 
 #playButtonMain {
-  border: none;
-  background-color: #16e05d;
+    border: none;
+    background-color: #16e05d;
 }
 
 #playButtonMain:hover {
-  background-color: #05a53d;
+    background-color: #05a53d;
 }
 
 .personal-imG {
-  min-width: 90px;
-  width: 100%;
-  height: 100%;
+    min-width: 90px;
+    width: 100%;
+    height: 100%;
 }
 
 .grey-horizontal-card {
-  background-color: rgb(44, 44, 44);
-  transition: background-color 0.3s ease;
+    background-color: rgb(44, 44, 44);
+    transition: background-color 0.3s ease;
 }
 
 .grey-horizontal-card:hover {
-  background-color: rgb(64, 64, 64);
+    background-color: rgb(64, 64, 64);
 }
 
 .grey-vertical-card {
-  background-color: rgb(29, 29, 29);
-  transition: background-color 0.3s ease;
+    background-color: rgb(29, 29, 29);
+    transition: background-color 0.3s ease;
 }
 
 .grey-vertical-card:hover {
-  background-color: rgb(20, 20, 20);
+    background-color: rgb(20, 20, 20);
 }
 
 .play-badge {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background-color: #16e05d;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  opacity: 0;
-  transform: scale(1);
-  transition: opacity 0.2s, transform 0.2s;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #16e05d;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    opacity: 0;
+    transform: scale(1);
+    transition: opacity 0.2s, transform 0.2s;
 }
 
 .card:hover .play-badge {
-  opacity: 1;
+    opacity: 1;
 }
 
 .play-badge2 {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background-color: #16e05d;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transform: translateY(15px);
-  transition: opacity 0.2s, transform 0.2s;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #16e05d;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.2s, transform 0.2s;
 }
 
 .play-badge3 {
-  background-color: #16e05d;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  display: flex;
-  opacity: 1;
-  margin-right: 6px;
+    background-color: #16e05d;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    opacity: 1;
+    margin-right: 6px;
 }
 
 .card:hover .play-badge2 {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .play-badge2:hover {
-  transform: translateY(0);
+    transform: translateY(0);
 }
 
 .playButton {
-  width: 50px;
-  position: relative;
-  left: 2px;
+    width: 50px;
+    position: relative;
+    left: 2px;
 }
 
 .playButton2 {
-  width: 50px;
-  position: relative;
+    width: 50px;
+    position: relative;
 }
 
 .playButton:hover {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 /*
@@ -386,125 +384,129 @@ input {
 
 /*PAGINA ALBUM*/
 #foto-artistA {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
 }
 
 #titlE {
-  font-size: 2em;
-  font-weight: bold;
+    font-size: 2em;
+    font-weight: bold;
 }
 
-#description > p {
-  font-size: 0.7em;
+#description>p {
+    font-size: 0.7em;
 }
 
 #dropdownUtente {
-  background-color: black !important;
+    background-color: black !important;
 }
 
 #dropdownUtente:hover {
-  background-color: black !important;
+    background-color: black !important;
 }
 
 /*rimosso background statico header #bg-dinamico {}*/
 
-#header-album > img {
-  width: 100%;
+#header-album>img {
+    width: 100%;
 }
 
 .grey-light {
-  color: rgb(146, 146, 146);
+    color: rgb(146, 146, 146);
 }
 
 #plaY {
-  font-size: 2em;
+    font-size: 2em;
 }
 
 #icoN {
-  height: 60px;
+    height: 60px;
 }
 
 @media screen and (min-width: 767px) {
-  #header-album-page > img {
-    width: 70%;
-  }
+    #header-album-page>img {
+        width: 70%;
+    }
 }
 
 @media screen and (min-width: 991px) {
-  #header-album-page > img {
-    width: 30%;
-  }
+    #header-album-page>img {
+        width: 30%;
+    }
 }
 
 /*CSS Davide*/
 
 header {
-  position: relative;
+    position: relative;
 }
 
 .verified {
-  color: aqua !important;
+    color: aqua !important;
 }
 
 #artistaHeader {
-  position: absolute !important;
-  bottom: 1em !important;
-  left: 1em !important;
+    position: absolute !important;
+    bottom: 1em !important;
+    left: 1em !important;
 }
 
 #artistaHeader p {
-  width: 106%;
+    width: 106%;
 }
 
 main {
-  color: white;
+    color: white;
 }
 
 .immaginetta {
-  width: 5em;
+    width: 5em;
 }
 
 #grad1 {
-  background-image: linear-gradient(#535353, #121212);
+    background-image: linear-gradient(#535353, #121212);
 }
 
 .fotoProfilo {
-  min-width: 3em;
-  border-radius: 50%;
+    min-width: 3em;
+    border-radius: 50%;
 }
 
 #dropDownArtista {
-  position: absolute;
-  top: 5px;
-  right: 1px;
+    position: absolute;
+    top: 5px;
+    right: 1px;
 }
 
 #ricerca {
-  position: absolute;
-  top: 5px;
-  left: 3px;
+    position: absolute;
+    top: 5px;
+    left: 3px;
 }
 
 .arrow {
-  width: 30px;
+    width: 30px;
 }
 
 .play-badge10 {
-  position: absolute;
-  top: 1px;
-  left: 2rem;
-  background-color: #16e05d;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 1;
-  transform: translateY(15px);
-  transition: opacity 0.2s, transform 0.2s;
+    position: absolute;
+    top: 1px;
+    left: 2rem;
+    background-color: #16e05d;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transform: translateY(15px);
+    transition: opacity 0.2s, transform 0.2s;
 }
 
 /*fine pagina album*/
+/*fix index page troppo "corto"*/
+.pushaAlto {
+    padding-bottom: 150px;
+}
