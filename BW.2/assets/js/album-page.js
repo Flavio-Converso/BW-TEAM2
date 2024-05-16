@@ -110,7 +110,31 @@ const renderAlbum = function (album) {
     if (target.tagName === "I" && target.parentElement.id === "playBuTton") {
       target = target.parentElement;
     }
+    if (target.id === "randomAlbumSong") {
+      // Make sure tracksArray is defined and contains at least one element
+      if (tracksArray && tracksArray.length > 0) {
+        // Get a random track index
+        const randomTrackIndex = Math.floor(Math.random() * tracksArray.length);
 
+        if (tracksArray[randomTrackIndex].preview) {
+          // Get the URL of the preview of the selected track
+          const previewUrl = tracksArray[randomTrackIndex].preview;
+          const title = tracksArray[randomTrackIndex].title;
+          const artist = tracksArray[randomTrackIndex].artist;
+
+          // Play the track
+          playTrack(album, title, artist, previewUrl);
+        } else {
+          console.error(
+            "Error: The selected track does not contain a 'preview' property"
+          );
+        }
+      } else {
+        console.error(
+          "Error: The tracksArray is not defined or does not contain any elements"
+        );
+      }
+    }
     // Check if the target is a play button
     if (target.id === "playBuTton") {
       // Get the track index from its data-index attribute
@@ -129,7 +153,6 @@ const renderAlbum = function (album) {
         const previewUrl = tracksArray[trackIndex].preview;
         const title = tracksArray[trackIndex].title;
         const artist = tracksArray[trackIndex].artist;
-
         // Play the track
         playTrack(album, title, artist, previewUrl);
       } else {
@@ -163,6 +186,7 @@ function playTrack(album, title, artist, previewUrl) {
 
     // Log per verificare se tutto è a posto
     console.log("Preview della traccia caricata nel media player:", previewUrl);
+
     console.log("Cover_small dell'album caricata nel media player:", coverUrl);
   } else {
     console.error(
@@ -170,10 +194,7 @@ function playTrack(album, title, artist, previewUrl) {
     );
   }
 }
-let randomAlbumSong = document.getElementById("randomAlbumSong");
-randomAlbumSong.addEventListener("click", function () {
-  console.log("daje");
-});
+
 // Funzione per impostare il gradiente del background in base all'immagine dell'album
 function setColorGradient(albumCoverBig, bgDinamico) {
   const element = document.getElementById(bgDinamico);
