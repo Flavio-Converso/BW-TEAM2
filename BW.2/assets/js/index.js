@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
         </div>
         <div class="play-badge">
-        <button class="bg-transparent border-0 play-button-card" data-index="${i}><img class="playButton" src="../imgs/svg/play-fill.svg"
+        <button class="bg-transparent border-0 play-button-card pe-5" data-index="${i}><img class="playButton" src="../imgs/svg/play-fill.svg"
         alt="play button" /></button>
         </div>
     </div>
