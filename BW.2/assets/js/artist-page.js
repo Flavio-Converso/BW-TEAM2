@@ -71,7 +71,7 @@ const trackArtistHtml = function (tracks) {
     const rowPopolari = document.createElement("div");
     rowPopolari.classList.add("row", "align-items-center", "mt-3");
     rowPopolari.innerHTML = `
-        <p class="col-1 mb-0 grid ms-4">1</p>
+        <p class="col-1 mb-0 grid ms-4">${i + 1}</p>
         <img src="${
           tracks[i].album.cover_medium
         }" class="immaginetta img-fluid img-track-album"/>
