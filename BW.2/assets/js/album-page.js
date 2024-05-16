@@ -43,11 +43,9 @@ const renderAlbum = function (album) {
   const description = document.querySelector("#description > p");
   const descriptionMobile = document.querySelector("#description > p");
   description.innerHTML = `
-    ${album.artist.name} <span class="">- ${realeaseYear[0]} - ${
-    album.nb_tracks
-  } brani, <span class="grey-light">${Math.floor(album.duration / 60)} min ${
-    album.duration % 60
-  } sec</span></span>
+    ${album.artist.name} <span class="">- ${realeaseYear[0]} - ${album.nb_tracks
+    } brani, <span class="grey-light">${Math.floor(album.duration / 60)} min ${album.duration % 60
+    } sec</span></span>
     `;
   //setColorFromImage(albumCoverBig, "bgDinamico");
   setColorGradient(albumCoverBig, "bgDinamico");
@@ -95,8 +93,8 @@ const renderAlbum = function (album) {
         <div class="col-1 p-0 d-flex align-items-center justify-content-center">
           <p class="m-0">
           ${Math.floor(track.duration / 60)}:${(track.duration % 60)
-      .toString()
-      .padStart(2, "0")}</p>
+        .toString()
+        .padStart(2, "0")}</p>
         </div>
     `;
     containerTracks.appendChild(rowTrack);
@@ -211,3 +209,56 @@ function toggleSearchInput() {
 }
 // Richiama la funzione per ottenere e visualizzare l'album con l'id specificato
 getAlbumWithId();
+document.addEventListener("DOMContentLoaded", () => {
+  const playPauseButton = document.getElementById("changeState");
+  const audioElement = document.getElementById("audio-player");
+  let isPlaying = false;
+
+  if (!playPauseButton) {
+    console.log("playPauseButton non trovato");
+  }
+
+  if (!audioElement) {
+    console.log("audioElement non trovato");
+  }
+
+  function togglePlayPause() {
+    isPlaying = !isPlaying;
+    if (isPlaying) {
+      audioElement.play();
+      playPauseButton.classList.remove("fa-play");
+      playPauseButton.classList.add("fa-pause");
+    } else {
+      audioElement.pause();
+      playPauseButton.classList.remove("fa-pause");
+      playPauseButton.classList.add("fa-play");
+    }
+  }
+
+  function updatePlayPauseButton() {
+    if (audioElement.paused) {
+      playPauseButton.classList.remove("fa-pause");
+      playPauseButton.classList.add("fa-play");
+    } else {
+      playPauseButton.classList.remove("fa-play");
+      playPauseButton.classList.add("fa-pause");
+    }
+  }
+
+  if (audioElement) {
+    audioElement.addEventListener("play", updatePlayPauseButton);
+    audioElement.addEventListener("pause", updatePlayPauseButton);
+    audioElement.addEventListener("loadeddata", togglePlayPause);
+  }
+
+  if (playPauseButton) {
+    playPauseButton.addEventListener("click", () => {
+      if (audioElement.paused) {
+        audioElement.play();
+      } else {
+        audioElement.pause();
+      }
+      updatePlayPauseButton();
+    });
+  }
+});
