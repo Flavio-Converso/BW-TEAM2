@@ -4,7 +4,6 @@
     box-sizing: border-box;
     font-family: "circular std book", sans-serif;
 }
-
 .music-player {
     --primary-color: #ddd;
     --padding: 1em;
