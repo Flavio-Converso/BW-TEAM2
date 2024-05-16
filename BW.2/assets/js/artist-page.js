@@ -52,6 +52,8 @@ const getTracksArtist = function () {
     });
 };
 const artistHtml = function (artist) {
+  const fotoArtista2 = document.getElementById("Profilo");
+  fotoArtista2.setAttribute("src", artist.picture_xl);
   const fotoArtista1 = document.getElementById("sfondo-artista");
   fotoArtista1.setAttribute("src", artist.picture_xl);
   const artistsName = document.querySelectorAll(".artist-name");
