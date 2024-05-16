@@ -44,6 +44,20 @@ main {
     background-color: black;
 }
 
+.scorrimentO {
+    overflow-y: auto;
+    height: 100%;
+}
+
+.scorrimentO::-webkit-scrollbar {
+    width: 9px;
+}
+
+.scorrimentO::-webkit-scrollbar-thumb {
+    background: #494949;
+    /* Colore del pollice della scrollbar */
+}
+
 .playlisT {
     height: 64%;
     overflow: auto;
@@ -58,9 +72,10 @@ main {
 }
 
 .playlisT::-webkit-scrollbar-thumb {
-    background: #272727;
+    background: #494949;
     /* Colore del pollice della scrollbar */
 }
+
 
 .central {
     margin-left: 25%;
