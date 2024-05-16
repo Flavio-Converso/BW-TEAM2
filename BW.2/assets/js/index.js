@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
       let card = document.createElement("div");
       card.classList.add("col-12", "col-sm-6", "col-lg-3", "col-xl-4", "mt-3");
       card.innerHTML = `
-    <a href="./album-page.html?id=${albums[i].albumId}" class="text-decoration-none">
+    <a href="./album-page.html?id=${albums[i].albumId}" class="text-decoration-none w-100">
     <div class="card mb-3 grey-horizontal-card position-relative h-100 ">
         <div class="row ">
             <div class="col-lg-12 col-xl d-flex align-items-center">
@@ -117,8 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
         </div>
         <div class="play-badge">
-        <button class="bg-transparent border-0 play-button-card pe-5" data-index="${i}><img class="playButton" src="../imgs/svg/play-fill.svg"
-        alt="play button" /></button>
+        <img class="playButton" src="./assets/imgs/svg/play-fill.svg" alt="play button" data-index="${i}" style="cursor:pointer" />
         </div>
     </div>
 `;
