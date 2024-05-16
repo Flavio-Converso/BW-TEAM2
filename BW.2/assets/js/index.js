@@ -514,7 +514,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   }
-  const playButtons = document.querySelectorAll(".play-button-card");
+  const playButtons = document.querySelectorAll(".playButton");
 
   // Aggiungi un listener per il click su ogni bottone play-button-card
   playButtons.forEach(function (playButton) {
