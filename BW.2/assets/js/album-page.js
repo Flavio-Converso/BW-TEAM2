@@ -43,9 +43,11 @@ const renderAlbum = function (album) {
   const description = document.querySelector("#description > p");
   const descriptionMobile = document.querySelector("#description > p");
   description.innerHTML = `
-    ${album.artist.name} <span class="">- ${realeaseYear[0]} - ${album.nb_tracks
-    } brani, <span class="grey-light">${Math.floor(album.duration / 60)} min ${album.duration % 60
-    } sec</span></span>
+    ${album.artist.name} <span class="">- ${realeaseYear[0]} - ${
+    album.nb_tracks
+  } brani, <span class="grey-light">${Math.floor(album.duration / 60)} min ${
+    album.duration % 60
+  } sec</span></span>
     `;
   //setColorFromImage(albumCoverBig, "bgDinamico");
   setColorGradient(albumCoverBig, "bgDinamico");
@@ -62,32 +64,39 @@ const renderAlbum = function (album) {
       title: track.title,
       artist: track.artist.name,
       duration: track.duration,
-      preview: track.preview // Aggiungiamo la proprietà preview
+      preview: track.preview, // Aggiungiamo la proprietà preview
     });
   }
   // Salviamo l'array delle tracce in localStorage
-  localStorage.setItem('albumTracks', JSON.stringify(tracksArray));
+  localStorage.setItem("albumTracks", JSON.stringify(tracksArray));
 
   // Ora possiamo anche creare l'HTML per ogni traccia e aggiungerlo al container
+
   tracksArray.forEach((track, i) => {
+    let randomVisual = Math.floor(Math.random() * 900) + 100;
+    let randomVisual2 = Math.floor(Math.random() * 900) + 100;
     const rowTrack = document.createElement("div");
     rowTrack.classList.add("row", "mt-3");
     rowTrack.innerHTML = `
-        <div class="col-1 ms-3 d-flex justify-content-end align-items-center">
+    
+        <div class="col-1 d-flex justify-content-end align-items-center">
             <p class="ms-0">${track.trackNumber}</p>
         </div>
         <div class="col-1 p-0 d-flex align-items-center justify-content-center">
-          <button class="bg-transparent border-0 play-button " type="button" data-index="${i}"><i class="bi bi-play-fill fs-1"></i></button>
+          <i id="playBuTton" class="bi bi-play-fill fs-1" data-index="${i}" style="cursor:pointer"></i>
         </div>
         <div class="col-6 p-0">
           <h5 class="m-0 fw-bold">${track.title}</h5>
           <p class="m-0 grey-light">${track.artist}</p>
         </div>
         <div class="col-3 p-0 d-flex align-items-center">
-          <p class="m-0">123</p>
+          <p class="m-0">${randomVisual + "." + randomVisual2}</p>
         </div>
         <div class="col-1 p-0 d-flex align-items-center justify-content-center">
-          <p class="m-0">${(track.duration / 60).toFixed(2)}</p>
+          <p class="m-0">
+          ${Math.floor(track.duration / 60)}:${(track.duration % 60)
+      .toString()
+      .padStart(2, "0")}</p>
         </div>
     `;
     containerTracks.appendChild(rowTrack);
@@ -95,22 +104,61 @@ const renderAlbum = function (album) {
 
   // Ascolta il click del bottone di riproduzione della traccia
   containerTracks.addEventListener("click", function (event) {
-    // Verifica se l'elemento cliccato è un bottone di riproduzione
-    if (event.target.matches(".play-button")) {
-      // Ottieni l'indice della traccia dal suo attributo data-index
-      const trackIndex = event.target.closest(".row").querySelector(".play-button").getAttribute("data-index");
+    let target = event.target;
 
-      // Assicurati che tracksArray sia definito e che contenga almeno un elemento
-      if (tracksArray && tracksArray.length > trackIndex && tracksArray[trackIndex].preview) {
-        // Ottieni l'URL della preview della traccia selezionata
+    // If the clicked element is an icon within the button, use the parent button as the target
+    if (target.tagName === "I" && target.parentElement.id === "playBuTton") {
+      target = target.parentElement;
+    }
+    if (target.id === "randomAlbumSong") {
+      // Make sure tracksArray is defined and contains at least one element
+      if (tracksArray && tracksArray.length > 0) {
+        // Get a random track index
+        const randomTrackIndex = Math.floor(Math.random() * tracksArray.length);
+
+        if (tracksArray[randomTrackIndex].preview) {
+          // Get the URL of the preview of the selected track
+          const previewUrl = tracksArray[randomTrackIndex].preview;
+          const title = tracksArray[randomTrackIndex].title;
+          const artist = tracksArray[randomTrackIndex].artist;
+
+          // Play the track
+          playTrack(album, title, artist, previewUrl);
+        } else {
+          console.error(
+            "Error: The selected track does not contain a 'preview' property"
+          );
+        }
+      } else {
+        console.error(
+          "Error: The tracksArray is not defined or does not contain any elements"
+        );
+      }
+    }
+    // Check if the target is a play button
+    if (target.id === "playBuTton") {
+      // Get the track index from its data-index attribute
+      const trackIndex = target
+        .closest(".row")
+        .querySelector("#playBuTton")
+        .getAttribute("data-index");
+
+      // Make sure tracksArray is defined and contains at least one element
+      if (
+        tracksArray &&
+        tracksArray.length > trackIndex &&
+        tracksArray[trackIndex].preview
+      ) {
+        // Get the URL of the preview of the selected track
         const previewUrl = tracksArray[trackIndex].preview;
         const title = tracksArray[trackIndex].title;
         const artist = tracksArray[trackIndex].artist;
-
-        // Esegui la riproduzione della traccia
+        // Play the track
         playTrack(album, title, artist, previewUrl);
       } else {
-        console.error("Errore: L'elemento tracksArray non è definito o non contiene un elemento con la proprietà 'preview'");
+        console.error(
+          "Error: The tracksArray element is not defined or does not contain an element with the 'preview' property"
+        );
       }
     }
   });
@@ -138,9 +186,12 @@ function playTrack(album, title, artist, previewUrl) {
 
     // Log per verificare se tutto è a posto
     console.log("Preview della traccia caricata nel media player:", previewUrl);
+
     console.log("Cover_small dell'album caricata nel media player:", coverUrl);
   } else {
-    console.error("Errore: L'elemento alb non è definito o non contiene una proprietà 'cover_small'");
+    console.error(
+      "Errore: L'elemento alb non è definito o non contiene una proprietà 'cover_small'"
+    );
   }
 }
 
@@ -181,3 +232,56 @@ function toggleSearchInput() {
 }
 // Richiama la funzione per ottenere e visualizzare l'album con l'id specificato
 getAlbumWithId();
+document.addEventListener("DOMContentLoaded", () => {
+  const playPauseButton = document.getElementById("changeState");
+  const audioElement = document.getElementById("audio-player");
+  let isPlaying = false;
+
+  if (!playPauseButton) {
+    console.log("playPauseButton non trovato");
+  }
+
+  if (!audioElement) {
+    console.log("audioElement non trovato");
+  }
+
+  function togglePlayPause() {
+    isPlaying = !isPlaying;
+    if (isPlaying) {
+      audioElement.play();
+      playPauseButton.classList.remove("fa-play");
+      playPauseButton.classList.add("fa-pause");
+    } else {
+      audioElement.pause();
+      playPauseButton.classList.remove("fa-pause");
+      playPauseButton.classList.add("fa-play");
+    }
+  }
+
+  function updatePlayPauseButton() {
+    if (audioElement.paused) {
+      playPauseButton.classList.remove("fa-pause");
+      playPauseButton.classList.add("fa-play");
+    } else {
+      playPauseButton.classList.remove("fa-play");
+      playPauseButton.classList.add("fa-pause");
+    }
+  }
+
+  if (audioElement) {
+    audioElement.addEventListener("play", updatePlayPauseButton);
+    audioElement.addEventListener("pause", updatePlayPauseButton);
+    audioElement.addEventListener("loadeddata", togglePlayPause);
+  }
+
+  if (playPauseButton) {
+    playPauseButton.addEventListener("click", () => {
+      if (audioElement.paused) {
+        audioElement.play();
+      } else {
+        audioElement.pause();
+      }
+      updatePlayPauseButton();
+    });
+  }
+});

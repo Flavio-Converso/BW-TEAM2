@@ -342,8 +342,8 @@ input {
 
 .play-badge3 {
   background-color: #16e05d;
-  width: 25px;
-  height: 25px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   display: flex;
   opacity: 1;
@@ -509,3 +509,14 @@ main {
 }
 
 /*fine pagina album*/
+/*fix index page troppo "corto"*/
+.pushaAlto {
+  padding-bottom: 150px;
+}
+
+/*fix immagine album page */
+@media screen and (max-width: 520px) {
+  #header-album-page > img {
+    width: 100%;
+  }
+}
