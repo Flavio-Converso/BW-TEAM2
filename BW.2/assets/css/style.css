@@ -510,3 +510,10 @@ main {
 .pushaAlto {
     padding-bottom: 150px;
 }
+
+/*fix immagine album page */
+@media screen and (max-width: 520px) {
+    #header-album-page>img {
+        width: 100%;
+    }
+}

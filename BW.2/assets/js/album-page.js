@@ -75,7 +75,8 @@ const renderAlbum = function (album) {
     const rowTrack = document.createElement("div");
     rowTrack.classList.add("row", "mt-3");
     rowTrack.innerHTML = `
-        <div class="col-1 ms-3 d-flex justify-content-end align-items-center">
+    
+        <div class="col-1 d-flex justify-content-end align-items-center">
             <p class="ms-0">${track.trackNumber}</p>
         </div>
         <div class="col-1 p-0 d-flex align-items-center justify-content-center">
