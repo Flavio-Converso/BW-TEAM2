@@ -43,9 +43,11 @@ const renderAlbum = function (album) {
   const description = document.querySelector("#description > p");
   const descriptionMobile = document.querySelector("#description > p");
   description.innerHTML = `
-    ${album.artist.name} <span class="">- ${realeaseYear[0]} - ${album.nb_tracks
-    } brani, <span class="grey-light">${Math.floor(album.duration / 60)} min ${album.duration % 60
-    } sec</span></span>
+    ${album.artist.name} <span class="">- ${realeaseYear[0]} - ${
+    album.nb_tracks
+  } brani, <span class="grey-light">${Math.floor(album.duration / 60)} min ${
+    album.duration % 60
+  } sec</span></span>
     `;
   //setColorFromImage(albumCoverBig, "bgDinamico");
   setColorGradient(albumCoverBig, "bgDinamico");
@@ -62,11 +64,11 @@ const renderAlbum = function (album) {
       title: track.title,
       artist: track.artist.name,
       duration: track.duration,
-      preview: track.preview // Aggiungiamo la proprietà preview
+      preview: track.preview, // Aggiungiamo la proprietà preview
     });
   }
   // Salviamo l'array delle tracce in localStorage
-  localStorage.setItem('albumTracks', JSON.stringify(tracksArray));
+  localStorage.setItem("albumTracks", JSON.stringify(tracksArray));
 
   // Ora possiamo anche creare l'HTML per ogni traccia e aggiungerlo al container
   tracksArray.forEach((track, i) => {
@@ -95,22 +97,41 @@ const renderAlbum = function (album) {
 
   // Ascolta il click del bottone di riproduzione della traccia
   containerTracks.addEventListener("click", function (event) {
-    // Verifica se l'elemento cliccato è un bottone di riproduzione
-    if (event.target.matches(".play-button")) {
-      // Ottieni l'indice della traccia dal suo attributo data-index
-      const trackIndex = event.target.closest(".row").querySelector(".play-button").getAttribute("data-index");
+    let target = event.target;
 
-      // Assicurati che tracksArray sia definito e che contenga almeno un elemento
-      if (tracksArray && tracksArray.length > trackIndex && tracksArray[trackIndex].preview) {
-        // Ottieni l'URL della preview della traccia selezionata
+    // If the clicked element is an icon within the button, use the parent button as the target
+    if (
+      target.tagName === "I" &&
+      target.parentElement.classList.contains("play-button")
+    ) {
+      target = target.parentElement;
+    }
+
+    // Check if the target is a play button
+    if (target.matches(".play-button")) {
+      // Get the track index from its data-index attribute
+      const trackIndex = target
+        .closest(".row")
+        .querySelector(".play-button")
+        .getAttribute("data-index");
+
+      // Make sure tracksArray is defined and contains at least one element
+      if (
+        tracksArray &&
+        tracksArray.length > trackIndex &&
+        tracksArray[trackIndex].preview
+      ) {
+        // Get the URL of the preview of the selected track
         const previewUrl = tracksArray[trackIndex].preview;
         const title = tracksArray[trackIndex].title;
         const artist = tracksArray[trackIndex].artist;
 
-        // Esegui la riproduzione della traccia
+        // Play the track
         playTrack(album, title, artist, previewUrl);
       } else {
-        console.error("Errore: L'elemento tracksArray non è definito o non contiene un elemento con la proprietà 'preview'");
+        console.error(
+          "Error: The tracksArray element is not defined or does not contain an element with the 'preview' property"
+        );
       }
     }
   });
@@ -140,7 +161,9 @@ function playTrack(album, title, artist, previewUrl) {
     console.log("Preview della traccia caricata nel media player:", previewUrl);
     console.log("Cover_small dell'album caricata nel media player:", coverUrl);
   } else {
-    console.error("Errore: L'elemento alb non è definito o non contiene una proprietà 'cover_small'");
+    console.error(
+      "Errore: L'elemento alb non è definito o non contiene una proprietà 'cover_small'"
+    );
   }
 }
 
