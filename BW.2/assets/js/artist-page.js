@@ -84,14 +84,14 @@ const trackArtistHtml = function (tracks) {
     rowPopolari.innerHTML = `
       <p class="col-1 mb-0 grid ms-4">${i + 1}</p>
       <img src="${tracks[i].album.cover_medium}" class="immaginetta img-fluid img-track-album"/>
-      <img class="playButton" src="./assets/imgs/svg/play-fill.svg" alt="play button" data-index="${i}" style="cursor:pointer" />
+      <i class="bi bi-play-fill fs-1 playBuTton" data-index="${i}" style="cursor:pointer"></i>
       <p class="col-2 flex-grow-1 track-name">${tracks[i].title}</p>
       <p class="col-1 flex-grow-1 track-riprodution">${Math.floor(Math.random() * 1000000)}</p>
       <p class="col-1 flex-grow-1 track-duration">${Math.floor(tracks[i].duration / 60)}:${Math.floor(tracks[i].duration % 60)}</p>`;
     divPopolari.appendChild(rowPopolari);
   }
 
-  const playButtons = document.querySelectorAll(".playButton");
+  const playButtons = document.querySelectorAll(".playBuTton");
   playButtons.forEach((button, index) => {
     button.setAttribute("data-index", index);
     button.addEventListener("click", function () {
@@ -143,61 +143,19 @@ function playTrack(track) {
   } else {
     console.error("Errore: La traccia non è definita correttamente");
   }
-  document.addEventListener("DOMContentLoaded", () => {
-    const playPauseButton = document.getElementById("changeState");
-    const audioElement = document.getElementById("audio-player");
-    let isPlaying = false;
-
-    if (!playPauseButton) {
-      console.log("playPauseButton non trovato");
-    }
-
-    if (!audioElement) {
-      console.log("audioElement non trovato");
-    }
-
-    function togglePlayPause() {
-      isPlaying = !isPlaying;
-      if (isPlaying) {
-        audioElement.play();
-        playPauseButton.classList.remove("fa-play");
-        playPauseButton.classList.add("fa-pause");
-      } else {
-        audioElement.pause();
-        playPauseButton.classList.remove("fa-pause");
-        playPauseButton.classList.add("fa-play");
-      }
-    }
-
-    function updatePlayPauseButton() {
-      if (audioElement.paused) {
-        playPauseButton.classList.remove("fa-pause");
-        playPauseButton.classList.add("fa-play");
-      } else {
-        playPauseButton.classList.remove("fa-play");
-        playPauseButton.classList.add("fa-pause");
-      }
-    }
-
-    if (audioElement) {
-      audioElement.addEventListener("play", updatePlayPauseButton);
-      audioElement.addEventListener("pause", updatePlayPauseButton);
-      audioElement.addEventListener("loadeddata", togglePlayPause);
-    }
-
-    if (playPauseButton) {
-      playPauseButton.addEventListener("click", () => {
-        if (audioElement.paused) {
-          audioElement.play();
-        } else {
-          audioElement.pause();
-        }
-        updatePlayPauseButton();
-      });
-    }
-  });
-
 }
+const audioPlayer = document.getElementById("audio-player");
+const playButton = document.getElementById("changeState");
+
+audioPlayer.addEventListener("play", function () {
+  playButton.classList.remove("fa-play");
+  playButton.classList.add("fa-pause");
+});
+
+audioPlayer.addEventListener("pause", function () {
+  playButton.classList.remove("fa-pause");
+  playButton.classList.add("fa-play");
+});
 
 
 // Chiamata iniziale per ottenere l'artista e le sue tracce
