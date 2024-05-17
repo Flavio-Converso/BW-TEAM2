@@ -217,18 +217,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 const audioPlayer = document.getElementById("audio-player");
-const playButtonControl = document.getElementById("changeState");
+const playButton = document.getElementById("changeState");
 
-if (audioPlayer && playButtonControl) {
+if (audioPlayer && playButton) {
   audioPlayer.addEventListener("play", function () {
-    playButtonControl.classList.remove("fa-play");
-    playButtonControl.classList.add("fa-pause");
+    playButton.classList.remove("fa-play");
+    playButton.classList.add("fa-pause");
   });
 
   audioPlayer.addEventListener("pause", function () {
     playButton.classList.remove("fa-pause");
     playButton.classList.add("fa-play");
   });
-
-  // Chiamata iniziale per ottenere l'artista e le sue tracce
-  getArtistWithId();
+}
+// Chiamata iniziale per ottenere l'artista e le sue tracce
+getArtistWithId();
