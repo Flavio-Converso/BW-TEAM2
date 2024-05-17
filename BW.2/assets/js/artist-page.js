@@ -97,7 +97,9 @@ const trackArtistHtml = function (tracks) {
       }</p>
       <p class="col-1 flex-grow-1 track-duration">${Math.floor(
         tracks[i].duration / 60
-      )}:${Math.floor(tracks[i].duration % 60)}</p>`;
+      )}:${Math.floor(tracks[i].duration % 60)
+      .toString()
+      .padStart(2, "0")}</p>`;
     divPopolari.appendChild(rowPopolari);
   }
 
