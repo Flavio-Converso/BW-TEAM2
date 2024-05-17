@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     for (let i = 1; i <= albums.length - 1; i++) {
       let card = document.createElement("div");
-      card.classList.add("col-12", "col-sm-6", "col-lg-3", "col-xl-4", "mt-3");
+      card.classList.add("col-12", "col-sm-6", "col-lg-4", "col-xl-3", "mt-3");
       card.innerHTML = `
     <a href="./album-page.html?id=${albums[i].albumId}" class="text-decoration-none w-100">
     <div class="card mb-3 grey-horizontal-card position-relative h-100 ">
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
             <div>
               <div class="col d-flex align-items-center">
-                  <div class="card-body">
+                  <div class="card-body py-3 px-3 ">
                       <h5 id="titoloHorizontalCard"
                           class="card-title d-flex justify-content-center text-white">
                           ${albums[i].albumTitle}
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
         </div>
         <div class="play-badge">
-        <img class="playButton" src="./assets/imgs/svg/play-fill.svg" alt="play button" data-index="${i}" style="cursor:pointer" />
+          <img class="playButton " src="./assets/imgs/svg/play-fill.svg" alt="play button" data-index="${i}" style="cursor:pointer" />
         </div>
     </div>
 `;
