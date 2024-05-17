@@ -82,7 +82,7 @@ const artistHtml = function (artist) {
 
 const trackArtistHtml = function (tracks) {
   const divPopolari = document.getElementById("div-popolari");
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 8; i++) {
     let randomVisual = Math.floor(Math.random() * 900) + 100;
     let randomVisual2 = Math.floor(Math.random() * 900) + 100;
     const rowPopolari = document.createElement("div");
