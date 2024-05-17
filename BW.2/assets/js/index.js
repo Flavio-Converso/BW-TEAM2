@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("searchResult", JSON.stringify(albums));
     console.log(albums);
 
-    for (let i = 1; i <= albums.length - 1; i++) {
+    for (let i = 0; i < albums.length; i++) {
       let card = document.createElement("div");
       card.classList.add("col-12", "col-sm-6", "col-lg-4", "col-xl-3", "mt-3");
       card.innerHTML = `
@@ -190,10 +190,7 @@ function toggleSearchInput() {
   }
   container.classList.toggle("active");
 }
-//
-//
-//
-//
+
 document.addEventListener("DOMContentLoaded", function () {
   const storedData = localStorage.getItem("searchResult");
   const albums = JSON.parse(storedData);
