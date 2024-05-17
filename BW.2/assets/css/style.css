@@ -556,3 +556,25 @@ main {
 }
 
 /*MENU A TENDINA*/
+.dx-col span {
+    font-size: 11px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    /* Numero massimo di righe */
+    text-overflow: ellipsis;
+}
+
+.dx-col p {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 3px;
+}
+
+@media screen and (max-width: 1200px) {
+    h6 {
+        font-size: 14px;
+        padding-top: 4px;
+    }
+}
