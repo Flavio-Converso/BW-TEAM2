@@ -551,7 +551,7 @@ main {
     color: rgb(0, 0, 0);
 }
 
-.custom-dropdown-menu .dropdown-divider {
+.dropdown-divider {
     border-color: #555454;
 }
 
