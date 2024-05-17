@@ -9,6 +9,10 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="icon" href="./assets/imgs/svg/spotify.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="./assets/css/media-player.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 
 <body>
@@ -244,11 +248,65 @@
         </div>
         </div>
     </main>
+    <div class="container d-flex justify-content-center align-items-center " id="container-player">
+        <div class="music-player overflow-hidden shadow ">
+            <div class="song-bar">
+                <div class="song-infos d-flex justify-content-center mt-4">
+                    <div class="image-container album-image">
+                        <a href="https://google.com"><img src="" alt="" id="media-image" /></a>
+                    </div>
+                    <div class="overflow-hidden " id="desc_div">
+                        <div class="song-description">
+                            <p class="title fs-6 "></p>
+                            <p class="divider" id="divisore">&nbsp;-&nbsp;</p>
+                            <p class="artist"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="icons">
+                    <i class="far fa-heart" id="heartBtn"></i>
+                </div>
+            </div>
+            <div class="progress-controller pt-3">
+                <div class="control-buttons pt-2">
+                    <i class="fas fa-random" id="randomBtn"></i>
+                    <i class="fas fa-step-backward" id="backwardBtn"></i>
+                    <button id="playPauseBtn" class="bg-transparent border-0 "><i class="play-pause fas fa-play"
+                            id="changeState"></i></button>
+                    <i class="fas fa-step-forward" id="forwardBtn"></i>
+                    <i class="fas fa-undo-alt" id="rewindBtn"></i>
+                </div>
+                <div class="progress-container pb-4 flex-grow-1   ">
+                    <span class="current-time me-2 "></span>
+                    <div class="progress-bar bg-secondary ">
+                        <div class="progress"></div>
+                        <div class="progress-reference"></div>
+                        <audio src="" id="audio-player"></audio>
+                    </div>
+                    <span class="total-time ms-2">--.--</span>
+                </div>
+            </div>
+            <div class="other-features">
+                <button class="bg-transparent border-0 "><i class="fas fa-list-ul"></i></button>
+                <button class="bg-transparent border-0 "><i class="fas fa-solid fa-microphone"></i></button>
+                <button class="bg-transparent border-0 "><i class="bi bi-speaker"></i></button>
+                <div class="volume-bar">
+                    <i class="fas fa-volume-down"></i>
+                    <div class="volume-progress progress-bar">
+                        <div class="progress"></div>
+                        <div class="volume-reference"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="./assets/js/artist-page.js"></script>
+    <script src="./assets/js/media-player.js"></script>
 </body>
 
 </html>
