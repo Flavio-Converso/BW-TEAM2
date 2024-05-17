@@ -37,7 +37,9 @@ const getTracksArtist = function () {
       if (response.ok) {
         return response.json();
       } else {
-        throw new Error("Errore nel recupero dei dettagli delle tracce dell'artista");
+        throw new Error(
+          "Errore nel recupero dei dettagli delle tracce dell'artista"
+        );
       }
     })
     .then((tracksArray) => {
@@ -79,15 +81,23 @@ const artistHtml = function (artist) {
 const trackArtistHtml = function (tracks) {
   const divPopolari = document.getElementById("div-popolari");
   for (let i = 0; i < 5; i++) {
+    let randomVisual = Math.floor(Math.random() * 900) + 100;
+    let randomVisual2 = Math.floor(Math.random() * 900) + 100;
     const rowPopolari = document.createElement("div");
     rowPopolari.classList.add("row", "align-items-center", "mt-3");
     rowPopolari.innerHTML = `
       <p class="col-1 mb-0 grid ms-4">${i + 1}</p>
-      <img src="${tracks[i].album.cover_medium}" class="immaginetta img-fluid img-track-album"/>
+      <img src="${tracks[i].album.cover_medium
+      }" class="immaginetta img-fluid img-track-album"/>
       <i class="bi bi-play-fill fs-1 playBuTton" data-index="${i}" style="cursor:pointer"></i>
       <p class="col-2 flex-grow-1 track-name">${tracks[i].title}</p>
-      <p class="col-1 flex-grow-1 track-riprodution">${Math.floor(Math.random() * 1000000)}</p>
-      <p class="col-1 flex-grow-1 track-duration">${Math.floor(tracks[i].duration / 60)}:${Math.floor(tracks[i].duration % 60)}</p>`;
+      <p class="col-1 flex-grow-1 track-riprodution">${randomVisual + "." + randomVisual2
+      }</p>
+      <p class="col-1 flex-grow-1 track-duration">${Math.floor(
+        tracks[i].duration / 60
+      )}:${Math.floor(tracks[i].duration % 60)
+        .toString()
+        .padStart(2, "0")}</p>`;
     divPopolari.appendChild(rowPopolari);
   }
 
@@ -119,7 +129,12 @@ function playTrack(track) {
     const audioPlayer = document.querySelector("audio");
 
     // Ottieni il nome dell'artista dal tag h1 con classe artist-name
-    const artistName = document.querySelector("h1.artist-name").textContent.trim();
+    const artistName = document
+      .querySelector(".artist-name")
+      .textContent.trim();
+
+    // Assegna il nome dell'artista
+    document.querySelector(".artist").textContent = artistName;
 
     // Assegna l'URL della preview all'attributo src dell'elemento audio
     audioPlayer.src = track.preview;
@@ -137,7 +152,10 @@ function playTrack(track) {
     audioPlayer.play();
 
     // Log per verificare se tutto è a posto
-    console.log("Preview della traccia caricata nel media player:", track.preview);
+    console.log(
+      "Preview della traccia caricata nel media player:",
+      track.preview
+    );
     console.log("Cover_small dell'album caricata nel media player:", coverUrl);
   } else {
     console.error("Errore: La traccia non è definita correttamente");
@@ -208,14 +226,9 @@ if (audioPlayer && playButtonControl) {
   });
 
   audioPlayer.addEventListener("pause", function () {
-    playButtonControl.classList.remove("fa-pause");
-    playButtonControl.classList.add("fa-play");
+    playButton.classList.remove("fa-pause");
+    playButton.classList.add("fa-play");
   });
-}
 
-
-
-
-
-// Chiamata iniziale per ottenere l'artista e le sue tracce
-getArtistWithId();
+  // Chiamata iniziale per ottenere l'artista e le sue tracce
+  getArtistWithId();
