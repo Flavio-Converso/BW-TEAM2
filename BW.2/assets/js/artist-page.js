@@ -6,7 +6,7 @@ console.log(artistId);
 const apiUrl = "https://striveschool-api.herokuapp.com/api/deezer/artist/";
 const url = apiUrl + artistId;
 
-// funzione per recuperare i dati dell'artista tramite il suo id
+// Funzione per recuperare i dati dell'artista tramite il suo id
 const getArtistWithId = function () {
   fetch(url)
     .then((response) => {
@@ -21,6 +21,7 @@ const getArtistWithId = function () {
       if (artist) {
         artistHtml(artist); // Utilizza l'oggetto artist restituito dalla chiamata API
         getTracksArtist(); // Chiama getTracksArtist() qui dopo aver ottenuto l'artista
+        initializePlayButton(); // Inizializza il pulsante di riproduzione
       } else {
         console.log("Nessun artista trovato");
       }
@@ -30,7 +31,7 @@ const getArtistWithId = function () {
     });
 };
 
-// funzione per recuperare le tracce dell'artista
+// Funzione per recuperare le tracce dell'artista
 const getTracksArtist = function () {
   fetch(url + "/top?limit=50")
     .then((response) => {
@@ -50,7 +51,8 @@ const getTracksArtist = function () {
             preview: track.preview,
             title: track.title,
             artist: track.artist.name,
-            cover: track.md5_image,
+            cover: track.album.cover_small,
+            album: track.album, // Include the album object
           };
         });
         localStorage.setItem("Tracce", JSON.stringify(tracksData));
@@ -87,17 +89,19 @@ const trackArtistHtml = function (tracks) {
     rowPopolari.classList.add("row", "align-items-center", "mt-3");
     rowPopolari.innerHTML = `
       <p class="col-1 mb-0 grid ms-4">${i + 1}</p>
-      <img src="${tracks[i].album.cover_medium
+      <img src="${
+        tracks[i].album.cover_medium
       }" class="immaginetta img-fluid img-track-album"/>
       <i class="bi bi-play-fill fs-1 playBuTton" data-index="${i}" style="cursor:pointer"></i>
       <p class="col-2 flex-grow-1 track-name">${tracks[i].title}</p>
-      <p class="col-1 flex-grow-1 track-riprodution">${randomVisual + "." + randomVisual2
+      <p class="col-1 flex-grow-1 track-riprodution">${
+        randomVisual + "." + randomVisual2
       }</p>
       <p class="col-1 flex-grow-1 track-duration">${Math.floor(
         tracks[i].duration / 60
       )}:${Math.floor(tracks[i].duration % 60)
-        .toString()
-        .padStart(2, "0")}</p>`;
+      .toString()
+      .padStart(2, "0")}</p>`;
     divPopolari.appendChild(rowPopolari);
   }
 
@@ -111,7 +115,7 @@ const trackArtistHtml = function (tracks) {
       const audioElement = document.querySelector("audio");
 
       // Utilizza artistName.textContent invece di artist.name
-      artistName.textContent = tracks[index].artist;
+      artistName.textContent = tracks[index].artist.name;
       title.textContent = tracks[index].title;
       mediaImage.setAttribute("src", tracks[index].album.cover_medium);
       audioElement.setAttribute("src", tracks[index].preview);
@@ -121,6 +125,7 @@ const trackArtistHtml = function (tracks) {
     });
   });
 };
+
 // Funzione per eseguire la riproduzione della traccia
 function playTrack(track) {
   if (track && track.album && track.album.cover_small) {
@@ -162,58 +167,63 @@ function playTrack(track) {
   }
 }
 
-document.addEventListener('DOMContentLoaded', (event) => {
-  const playButton = document.querySelector('.play-badge10');
-  const audioElement = document.querySelector('audio');
-  const tracks = JSON.parse(localStorage.getItem('Tracce'));
+function initializePlayButton() {
+  const playButton = document.querySelector(".play-badge10");
+  const audioElement = document.querySelector("audio");
+  const tracks = JSON.parse(localStorage.getItem("Tracce"));
 
   if (!tracks || tracks.length === 0) {
-    console.error('Errore: Non sono state trovate tracce');
+    console.error("Errore: Non sono state trovate tracce");
     return;
   }
 
   if (playButton) {
-    playButton.addEventListener('click', function () {
+    playButton.addEventListener("click", function () {
       const randomIndex = Math.floor(Math.random() * tracks.length);
       const track = tracks[randomIndex];
 
       if (!track || !track.title || !track.preview) {
-        console.error('Errore: La traccia non è definita correttamente');
+        console.error("Errore: La traccia non è definita correttamente");
         return;
       }
 
       console.log(`Bottone cliccato. Traccia selezionata: ${track.title}`);
 
       // Update the audio source and play
-      audioElement.setAttribute('src', track.preview);
+      audioElement.setAttribute("src", track.preview);
       audioElement.play();
 
       // Update the track title
-      const trackTitleElement = document.querySelector('p.title');
+      const trackTitleElement = document.querySelector("p.title");
       if (trackTitleElement) {
         trackTitleElement.textContent = track.title;
       }
 
       // Optional: Update another element with the artist name (not h1)
-      const artistElement = document.querySelector('.artist');
+      const artistElement = document.querySelector(".artist");
       if (artistElement) {
         artistElement.textContent = track.artist;
       }
+
       // Update the cover image
       const mediaPlayerImg = document.getElementById("media-image");
       if (mediaPlayerImg) {
-        if (album.track && album.cover_small) {
-          const coverUrl = album.cover_small;
+        if (track.album && track.album.cover_small) {
+          const coverUrl = track.album.cover_small;
           mediaPlayerImg.setAttribute("src", coverUrl);
           mediaPlayerImg.style.display = "block";
         } else {
-          console.error('Errore: Informazioni sulla copertina non disponibili per questa traccia');
+          console.error(
+            "Errore: Informazioni sulla copertina non disponibili per questa traccia"
+          );
         }
       }
-
-
     });
   }
+}
+
+document.addEventListener("DOMContentLoaded", (event) => {
+  getArtistWithId(); // Ensure this call eventually leads to initializePlayButton being called
 });
 
 const audioPlayer = document.getElementById("audio-player");
@@ -230,5 +240,5 @@ if (audioPlayer && playButton) {
     playButton.classList.add("fa-play");
   });
 }
+
 // Chiamata iniziale per ottenere l'artista e le sue tracce
-getArtistWithId();
