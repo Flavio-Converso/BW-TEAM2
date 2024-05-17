@@ -584,3 +584,26 @@ const mostraAnnunci = function () {
   containerFirstAlbum.classList.remove("d-none");
   mostraAnnunciBtn.classList.add("d-none");
 };
+
+const mostraSaluto = function () {
+  const saluto = document.getElementById("saluto");
+  const date = new Date();
+  const ora = date.getHours();
+
+  if (ora >= 6 && ora < 13) {
+    console.log("Buongiorno");
+    saluto.innerHTML = "Buongiorno";
+  } else if (ora >= 13 && ora < 18) {
+    console.log("Buon pomeriggio");
+    saluto.innerHTML = "Buon pomeriggio";
+  } else if (ora >= 18 && ora < 23) {
+    console.log("Buonasera");
+    saluto.innerHTML = "Buonasera";
+  } else if (ora >= 23 && ora < 6) {
+    console.log("Buonanotte");
+    saluto.innerHTML = "Buonanotte";
+  }
+  console.log(ora);
+};
+
+mostraSaluto();
