@@ -111,7 +111,6 @@ const trackArtistHtml = function (tracks) {
     });
   });
 };
-
 // Funzione per eseguire la riproduzione della traccia
 function playTrack(track) {
   if (track && track.album && track.album.cover_small) {
@@ -120,10 +119,7 @@ function playTrack(track) {
     const audioPlayer = document.querySelector("audio");
 
     // Ottieni il nome dell'artista dal tag h1 con classe artist-name
-    const artistName = document.querySelector(".artist-name").textContent.trim();
-
-    // Assegna il nome dell'artista
-    document.querySelector(".artist").textContent = artistName;
+    const artistName = document.querySelector("h1.artist-name").textContent.trim();
 
     // Assegna l'URL della preview all'attributo src dell'elemento audio
     audioPlayer.src = track.preview;
@@ -133,9 +129,12 @@ function playTrack(track) {
     mediaPlayerImg.setAttribute("src", coverUrl);
     mediaPlayerImg.style.display = "block";
 
+    // Assegna il nome dell'artista alla classe artist
+    const artistElement = document.querySelector(".artist");
+    artistElement.textContent = artistName;
+
     // Avvia la riproduzione dell'audio
     audioPlayer.play();
-
 
     // Log per verificare se tutto è a posto
     console.log("Preview della traccia caricata nel media player:", track.preview);
@@ -144,18 +143,78 @@ function playTrack(track) {
     console.error("Errore: La traccia non è definita correttamente");
   }
 }
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  const playButton = document.querySelector('.play-badge10');
+  const audioElement = document.querySelector('audio');
+  const tracks = JSON.parse(localStorage.getItem('Tracce'));
+
+  if (!tracks || tracks.length === 0) {
+    console.error('Errore: Non sono state trovate tracce');
+    return;
+  }
+
+  if (playButton) {
+    playButton.addEventListener('click', function () {
+      const randomIndex = Math.floor(Math.random() * tracks.length);
+      const track = tracks[randomIndex];
+
+      if (!track || !track.title || !track.preview) {
+        console.error('Errore: La traccia non è definita correttamente');
+        return;
+      }
+
+      console.log(`Bottone cliccato. Traccia selezionata: ${track.title}`);
+
+      // Update the audio source and play
+      audioElement.setAttribute('src', track.preview);
+      audioElement.play();
+
+      // Update the track title
+      const trackTitleElement = document.querySelector('p.title');
+      if (trackTitleElement) {
+        trackTitleElement.textContent = track.title;
+      }
+
+      // Optional: Update another element with the artist name (not h1)
+      const artistElement = document.querySelector('.artist');
+      if (artistElement) {
+        artistElement.textContent = track.artist;
+      }
+      // Update the cover image
+      const mediaPlayerImg = document.getElementById("media-image");
+      if (mediaPlayerImg) {
+        if (album.track && album.cover_small) {
+          const coverUrl = album.cover_small;
+          mediaPlayerImg.setAttribute("src", coverUrl);
+          mediaPlayerImg.style.display = "block";
+        } else {
+          console.error('Errore: Informazioni sulla copertina non disponibili per questa traccia');
+        }
+      }
+
+
+    });
+  }
+});
+
 const audioPlayer = document.getElementById("audio-player");
-const playButton = document.getElementById("changeState");
+const playButtonControl = document.getElementById("changeState");
 
-audioPlayer.addEventListener("play", function () {
-  playButton.classList.remove("fa-play");
-  playButton.classList.add("fa-pause");
-});
+if (audioPlayer && playButtonControl) {
+  audioPlayer.addEventListener("play", function () {
+    playButtonControl.classList.remove("fa-play");
+    playButtonControl.classList.add("fa-pause");
+  });
 
-audioPlayer.addEventListener("pause", function () {
-  playButton.classList.remove("fa-pause");
-  playButton.classList.add("fa-play");
-});
+  audioPlayer.addEventListener("pause", function () {
+    playButtonControl.classList.remove("fa-pause");
+    playButtonControl.classList.add("fa-play");
+  });
+}
+
+
+
 
 
 // Chiamata iniziale per ottenere l'artista e le sue tracce
