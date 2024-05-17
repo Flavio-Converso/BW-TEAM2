@@ -94,9 +94,9 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("searchResult", JSON.stringify(albums));
     console.log(albums);
 
-    for (let i = 1; i <= albums.length - 1; i++) {
+    for (let i = 0; i < albums.length; i++) {
       let card = document.createElement("div");
-      card.classList.add("col-12", "col-sm-6", "col-lg-3", "col-xl-4", "mt-3");
+      card.classList.add("col-12", "col-sm-6", "col-lg-4", "col-xl-3", "mt-3");
       card.innerHTML = `
     <a href="./album-page.html?id=${albums[i].albumId}" class="text-decoration-none w-100">
     <div class="card mb-3 grey-horizontal-card position-relative h-100 ">
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
             <div>
               <div class="col d-flex align-items-center">
-                  <div class="card-body">
+                  <div class="card-body py-3 px-3 ">
                       <h5 id="titoloHorizontalCard"
                           class="card-title d-flex justify-content-center text-white">
                           ${albums[i].albumTitle}
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
         </div>
         <div class="play-badge">
-        <img class="playButton" src="./assets/imgs/svg/play-fill.svg" alt="play button" data-index="${i}" style="cursor:pointer" />
+          <img class="playButton " src="./assets/imgs/svg/play-fill.svg" alt="play button" data-index="${i}" style="cursor:pointer" />
         </div>
     </div>
 `;
@@ -190,29 +190,12 @@ function toggleSearchInput() {
   }
   container.classList.toggle("active");
 }
-//
-//
-//
-//
-function setColorFromImage(albumCover, provasfondo) {
-  const element = document.getElementById(provasfondo);
 
-  new Vibrant(albumCover)
-    .getPalette()
-    .then((palette) => {
-      const vibrantColor = palette.Vibrant.getHex();
-      element.style.backgroundColor = vibrantColor;
-    })
-    .catch((err) => {
-      console.error("Errore nell'estrazione dei colori: ", err);
-    });
-}
 document.addEventListener("DOMContentLoaded", function () {
   const storedData = localStorage.getItem("searchResult");
   const albums = JSON.parse(storedData);
   if (albums && albums.length > 0) {
     const firstAlbumCover = albums[0].albumCover;
-    setColorFromImage(firstAlbumCover, "provasfondo");
   }
 });
 // MEDIA PLAYER
@@ -581,3 +564,43 @@ function togglePlayPause() {
     playPauseButton.classList.add("fa-play");
   }
 }
+
+const containerFirstAlbum = document.getElementById("container-first-album");
+const mostraAnnunciBtn = document.getElementById("mostra-annunci");
+/* FUNZIONE PER NASCONDERE GLI ANNUNCI */
+const nascondiAnnunci = function () {
+  console.log(containerFirstAlbum);
+  containerFirstAlbum.classList.add("d-none");
+  containerFirstAlbum.classList.remove("d-block");
+  mostraAnnunciBtn.classList.add("d-block");
+  mostraAnnunciBtn.classList.remove("d-none");
+};
+
+const mostraAnnunci = function () {
+  containerFirstAlbum.classList.add("d-block");
+  containerFirstAlbum.classList.remove("d-none");
+  mostraAnnunciBtn.classList.add("d-none");
+};
+
+const mostraSaluto = function () {
+  const saluto = document.getElementById("saluto");
+  const date = new Date();
+  const ora = date.getHours();
+
+  if (ora >= 6 && ora < 13) {
+    console.log("Buongiorno");
+    saluto.innerHTML = "Buongiorno";
+  } else if (ora >= 13 && ora < 18) {
+    console.log("Buon pomeriggio");
+    saluto.innerHTML = "Buon pomeriggio";
+  } else if (ora >= 18 && ora < 23) {
+    console.log("Buonasera");
+    saluto.innerHTML = "Buonasera";
+  } else if (ora >= 23 && ora < 6) {
+    console.log("Buonanotte");
+    saluto.innerHTML = "Buonanotte";
+  }
+  console.log(ora);
+};
+
+mostraSaluto();
