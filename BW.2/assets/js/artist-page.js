@@ -21,7 +21,6 @@ const getArtistWithId = function () {
       if (artist) {
         artistHtml(artist); // Utilizza l'oggetto artist restituito dalla chiamata API
         getTracksArtist(); // Chiama getTracksArtist() qui dopo aver ottenuto l'artista
-        initializePlayButton(); // Inizializza il pulsante di riproduzione
       } else {
         console.log("Nessun artista trovato");
       }
@@ -57,6 +56,7 @@ const getTracksArtist = function () {
         });
         localStorage.setItem("Tracce", JSON.stringify(tracksData));
         trackArtistHtml(tracksArray.data);
+        initializePlayButton(); // Inizializza il pulsante di riproduzione qui dopo aver salvato le tracce
       } else {
         console.log("Nessuna traccia trovata");
       }
@@ -240,5 +240,3 @@ if (audioPlayer && playButton) {
     playButton.classList.add("fa-play");
   });
 }
-
-// Chiamata iniziale per ottenere l'artista e le sue tracce
