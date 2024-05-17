@@ -194,25 +194,11 @@ function toggleSearchInput() {
 //
 //
 //
-function setColorFromImage(albumCover, provasfondo) {
-  const element = document.getElementById(provasfondo);
-
-  new Vibrant(albumCover)
-    .getPalette()
-    .then((palette) => {
-      const vibrantColor = palette.Vibrant.getHex();
-      element.style.backgroundColor = vibrantColor;
-    })
-    .catch((err) => {
-      console.error("Errore nell'estrazione dei colori: ", err);
-    });
-}
 document.addEventListener("DOMContentLoaded", function () {
   const storedData = localStorage.getItem("searchResult");
   const albums = JSON.parse(storedData);
   if (albums && albums.length > 0) {
     const firstAlbumCover = albums[0].albumCover;
-    setColorFromImage(firstAlbumCover, "provasfondo");
   }
 });
 // MEDIA PLAYER
@@ -581,3 +567,20 @@ function togglePlayPause() {
     playPauseButton.classList.add("fa-play");
   }
 }
+
+const containerFirstAlbum = document.getElementById("container-first-album");
+const mostraAnnunciBtn = document.getElementById("mostra-annunci");
+/* FUNZIONE PER NASCONDERE GLI ANNUNCI */
+const nascondiAnnunci = function () {
+  console.log(containerFirstAlbum);
+  containerFirstAlbum.classList.add("d-none");
+  containerFirstAlbum.classList.remove("d-block");
+  mostraAnnunciBtn.classList.add("d-block");
+  mostraAnnunciBtn.classList.remove("d-none");
+};
+
+const mostraAnnunci = function () {
+  containerFirstAlbum.classList.add("d-block");
+  containerFirstAlbum.classList.remove("d-none");
+  mostraAnnunciBtn.classList.add("d-none");
+};
